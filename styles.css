@@ -11,7 +11,7 @@ Montserrat uses 300 and 400 weight
 */
 
 * {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin: 0;
   padding: 0;
   list-style: none;
@@ -19,12 +19,62 @@ Montserrat uses 300 and 400 weight
   font-family: Montserrat;
 }
 
+body {
+  background-color: #2B2733;
+  background-size: cover;
+}
+
+main {
+  display: flex;
+}
+
+header {
+  background-color: #46424D;
+  text-align: center;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 400;
+  color: #FFF;
+}
+
+h2 {
+  color: #CBC9CF;
+}
+
+.left-section {
+  padding: 20px;
+  flex: 2;
+  align-content: center;
+}
+
+.right-section {
+  padding: 20px;
+  flex: 1;
+  border-left: 2px solid #46424D;
+}
+
+.activity-form {
+  display: flex;
+  background-color: #46424D;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #26222d;
+}
+
+.input-form {
+  align-self: flex-end;
+}
 
 
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 
 .hidden-right-section {
-  visibility: hidden;
+  display: none;
 }
