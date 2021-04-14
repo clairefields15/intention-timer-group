@@ -26,6 +26,7 @@ body {
 
 main {
   display: flex;
+  
 }
 
 header {
@@ -56,6 +57,7 @@ h2 {
   padding: 20px;
   flex: 1;
   border-left: 2px solid #46424D;
+  border
   color: #CBC9CF;
 }
 
