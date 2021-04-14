@@ -42,6 +42,8 @@ h1 {
 
 h2 {
   color: #CBC9CF;
+  font-family: Montserrat;
+  font-weight: 300;
 }
 
 .left-section {
@@ -54,6 +56,14 @@ h2 {
   padding: 20px;
   flex: 1;
   border-left: 2px solid #46424D;
+  color: #CBC9CF;
+}
+
+.aside-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  align-items: center;
 }
 
 .activity-form {
@@ -64,6 +74,7 @@ h2 {
   flex-wrap: wrap;
   border-radius: 5px;
   box-shadow: 5px 5px 5px #26222d;
+  min-height: 500px;
 }
 
 .input-form {
