@@ -17,6 +17,7 @@
       <h2 class="new-activity">New Activity</h2>
       <section class="activity-form">
         <p class="select-category">Select a category:</p>
+        <div class="button-container">
         <button class="button" id="studyButton" type="button" name="button">
           <img src="./assets/study.svg" class="button-icon">
           <span class="button__text">Study</span>
@@ -29,16 +30,18 @@
           <img src="./assets/exercise.svg" class="button-icon">
           <span class="button__text">Exercise</span>
         </button>
+        </div>
         <p class="error-message hidden"> <img class="warning-img" src="./assets/warning.svg" alt="">Please choose a category.</p>
         <form class="input-form" id="inputForm">
           <p class="accomplish-text"> What would you like to accomplish during this time?</p>
-          <input class="accomplish-input" type="text">
+          <input class="form-input" type="text">
           <p class="error-message hidden"> <img class="warning-img" src="./assets/warning.svg" alt="">A description is required.</p>
           <article class="time-container">
             <p class="time-text">Minutes</p>
-            <input class="minutes-input" id="minutesInput" type="number">
+            <input class="form-input" id="minutesInput" type="number">
             <p class="error-message hidden"> <img class="warning-img" src="./assets/warning.svg" alt="">Minutes are required.</p>
             <p class="time-text">Seconds</p>
+            <input class="form-input" id="secondsInput" type="number">
             <p class="error-message hidden"> <img class="warning-img" src="./assets/warning.svg" alt="">Seconds are required.</p>
           </article>
         </form>
