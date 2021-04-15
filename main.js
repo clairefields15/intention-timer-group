@@ -1,7 +1,5 @@
-//A user should see an error message if they attempt to submit the
-//form without filling out all fields. (Note: The comp shows the error
-//message for forgetting a description - You should mimic this error
-//messaging for all inputs.
+///// DOM ELEMENTS AND VARIABLES ///////
+
 var activityButtons = document.getElementById("buttonRow");
 var minutes = document.getElementById("minutes");
 var seconds = document.getElementById("seconds");
@@ -11,17 +9,19 @@ var logActivityButton = document.getElementById('logActivityButton');
 
 var loggedActivities = [];
 var currentActivity;
+
 ////////// EVENT LISTENERS ///////////////
 activityButtons.addEventListener('click', activateButton);
 startActivityButton.addEventListener('click', startActivity);
-startTimerButton.addEventListener('click', );
-logActivityButton.addEventListener('click', );
+// startTimerButton.addEventListener('click', );
+// logActivityButton.addEventListener('click', );
 
 minutes.addEventListener("keypress", function (event) {
   if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
     event.preventDefault();
   }
 });
+
 seconds.addEventListener("keypress", function (event) {
   if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
     event.preventDefault();
@@ -56,11 +56,6 @@ function removeColor(button, clickedClass){
 
 function startActivity() {
   preventEmptyInput();
-  //prevent empty input
-  //prevent e in numbers
-  //if no errors, create new instance
-  //switch to timer page
-  //on the timer page, show minutes, seconds, description, special color outline
 }
 
 function preventEmptyInput() {
