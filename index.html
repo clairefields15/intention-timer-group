@@ -18,16 +18,19 @@
       <section class="activity-form">
         <p class="select-category">Select a category:</p>
         <div class="button-container">
-        <button class="button" id="studyButton" type="button" name="button">
+        <button class="activity-button" id="studyButton" type="button" name="button">
           <img src="./assets/study.svg" class="button-icon">
+          <img src="./assets/study-active.svg" class="button-icon hidden">
           <span class="button__text">Study</span>
         </button>
-        <button class="button" id="meditateButton" type="button" name="button">
+        <button class="activity-button" id="meditateButton" type="button" name="button">
           <img src="./assets/meditate.svg" class="button-icon">
+          <img src="./assets/meditate-active.svg" class="button-icon hidden">
           <span class="button__text">Meditate</span>
         </button>
-        <button class="button" id="exerciseButton" type="button" name="button">
+        <button class="activity-button" id="exerciseButton" type="button" name="button">
           <img src="./assets/exercise.svg" class="button-icon">
+          <img src="./assets/exercise-active.svg" class="button-icon hidden">
           <span class="button__text">Exercise</span>
         </button>
         </div>
@@ -47,14 +50,14 @@
         </form>
         <button class="start-activity" id="startActivity" type="button">START ACTIVITY</button>
       </section>
-      <section class="timer-screen hidden-right-section">
+      <section class="timer-screen hidden-left-section">
         <p id="user-accomplish-input"></p>
         <p id="countdown-timer"><span id="minutes-display"></span>:<span id="seconds-display"></span></p>
-        <p id="finished-message" class="hidden-right-section">Great job, you have finished your activity!</p>
-        <button type="button" class="disable" id="startButton">START</button>
-        <button type="button" id="logActivityButton" class="hidden-right-section">LOG ACTIVITY</button>
+        <p id="finished-message" class="hidden-left-section">Great job, you have finished your activity!</p>
+        <button type="button" class="disable" id="startTimer">START</button>
+        <button type="button" id="logActivityButton" class="hidden-left-section">LOG ACTIVITY</button>
       </section>
-      <section class="create-new-activity-screen hidden-right-section">
+      <section class="create-new-activity-screen hidden-left-section">
         <button type="button" class="create-new-activity-button">CREATE A NEW ACTIVITY</button>
       </section>
     </section>
