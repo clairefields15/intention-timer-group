@@ -81,25 +81,34 @@ function preventButtons() {
     }
   }
   if(!isClicked) {
-    categoryError.classList.remove('hidden')
+    showElement(categoryError)
+  } else {
+    hideElement(categoryError)
   }
 }
 
 function preventAccomplish() {
   if (!accomplishInput.value) {
-    descriptionError.classList.remove('hidden')
+    showElement(descriptionError)
+  } else {
+    hideElement(descriptionError)
   }
 }
 
+
 function preventMinutes() {
   if (!minutesInput.value){
-    minutesError.classList.remove('hidden')
+    showElement(minutesError)
+  } else{
+    hideElement(minutesError)
   }
 }
 
 function preventSeconds() {
   if (!secondsInput.value){
-    secondsError.classList.remove('hidden')
+    showElement(secondsError)
+  } else{
+    hideElement(secondsError)
   }
 }
 
