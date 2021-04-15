@@ -1,10 +1,3 @@
-//Create variables for DOM interaction by element id
-  //studyButton -claire
-  //meditateButton -lindsay
-  //exerciseButton
-  //startActivity -lindsay
-  //startButton
-  //logActivityButton -lindsay
 
 //need event listeners on the three category buttons
 //need event handlers for the buttons- function change color
@@ -21,14 +14,24 @@
 
 
 ////////////////// VARIABLES TO ACCESS DOM ////////////
-var studyButton
+var studyButton = document.querySelector('#studyButton');
+var exerciseButton = document.querySelector('#exerciseButton');
+var startButton = document.querySelector('#startActivity');
+var meditateButton = document.getElementById('meditateButton');
+var startTimer = document.querySelector('#startButton');
+var logActivityButton = document.getElementById('logActivityButton');
 
 
 var currentActivity = ;
 var loggedActivities = [];
 
 ////////// EVENT LISTENERS ///////////////
-
+studyButton.addEventListener('click', );
+exerciseButton.addEventListener('click', );
+startButton.addEventListener('click', );
+startButton.addEventListener('click', );
+meditateButton.addEventListener('click', );
+logActivityButton.addEventListener('click', );
 
 
 ///////////// EVENT HANDLERS & FUNCTIONS ///////////////
