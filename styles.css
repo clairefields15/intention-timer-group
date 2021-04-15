@@ -26,6 +26,17 @@ main {
   height: 1000px;
 }
 
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.timer-display {
+  background-color: red;
+}
+
 .new-activity {
   padding: 35px 0 0 30px;
   font-weight: 300;
@@ -174,7 +185,6 @@ main {
   margin-left: 225px;
 }
 
-
 .input-label{
   background-color: #46424D;
   margin: 20px 0 30px 45px;
@@ -250,9 +260,6 @@ main {
   display: flex;
 }
 
-.hidden {
-  display: none;
-}
 
 .top-text {
   margin-top: 40px;
@@ -262,13 +269,6 @@ main {
 .bottom-text {
   text-align: center;
   font-size: 14pt;
-}
-
-.right-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
 }
 
 .past-activities {
@@ -324,4 +324,15 @@ main {
 .activity-card-styles > p {
   background-color: #46424D;
   font-size: 19px;
+}
+
+
+
+
+
+
+
+
+.hidden {
+  display: none;
 }

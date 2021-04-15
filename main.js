@@ -43,14 +43,26 @@ function activateButton(event) {
     addColor(studyButton, "study-button-active");
     removeColor(meditateButton, "meditate-button-active");
     removeColor(exerciseButton, "exercise-button-active");
+    disableStudyButton();
+    // studyButton.disabled = true;
+    // meditateButton.disabled = false;
+    // exerciseButton.disabled = false;
   } else if (category === "meditateButton") {
     addColor(meditateButton, "meditate-button-active");
     removeColor(studyButton, "study-button-active");
     removeColor(exerciseButton, "exercise-button-active");
+    disableMeditateButton();
+    // studyButton.disabled = false;
+    // meditateButton.disabled = true;
+    // exerciseButton.disabled = false;
   } else if (category === "exerciseButton") {
     addColor(exerciseButton, "exercise-button-active");
     removeColor(studyButton, "study-button-active");
     removeColor(meditateButton, "meditate-button-active");
+    disableExerciseButton();
+    // exerciseButton.disabled = true;
+    // studyButton.disabled = false;
+    // meditateButton.disabled = false;
   }
 }
 
@@ -74,18 +86,49 @@ function startActivity() {
 }
 
 function preventButtons() {
-  var isClicked = false;
-  for (var i = 0; i < activityButtons.length ; i++) {
-    if(!activityButtons[i].disabled) {
-      isClicked = true;
-    }
-  }
-  if(!isClicked) {
-    showElement(categoryError)
-  } else {
+  if(studyButton.disabled || meditateButton.disabled || exerciseButton.disabled) {
     hideElement(categoryError)
+  } else {
+    showElement(categoryError)
   }
 }
+
+function disableStudyButton() {
+  if (studyButton.disabled = true) {
+    meditateButton.disabled = false;
+    exerciseButton.disabled = false;
+  }
+}
+
+function disableMeditateButton() {
+  if (meditateButton.disabled = true) {
+    studyButton.disabled = false;
+    exerciseButton.disabled = false;
+  }
+}
+
+function disableExerciseButton() {
+  if (exerciseButton.disabled = true) {
+    studyButton.disabled = false;
+    meditateButton.disabled = false;
+  }
+}
+
+
+// //this works with a small bug
+// function preventButtons() {
+//   var isClicked = false;
+//   for (var i = 0; i < activityButtons.length ; i++) {
+//     if(!activityButtons[i].disabled) {
+//       isClicked = true;
+//     }
+//   }
+//   if(!isClicked) {
+//     showElement(categoryError)
+//   } else {
+//     hideElement(categoryError)
+//   }
+// }
 
 function preventAccomplish() {
   if (!accomplishInput.value) {
