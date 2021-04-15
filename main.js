@@ -1,58 +1,34 @@
-// GLOBAL VARIABLES
-var activity;
-var activityForm = document.getElementById("activityForm");
-var boxTitle = document.getElementById("boxTitle");
-var buttonRow = document.getElementById("buttonRow");
-var category = '';
-var description = document.getElementById("descriptionInput");
-var logActivityButton = document.getElementById("logActivityButton");
-var minutes = document.getElementById("minutes");
-var numberInputs = document.getElementById("numberInputs");
-var pastActivities = [];
-var seconds = document.getElementById("seconds");
-var secondsCountdown = document.getElementById("secondsCountdown");
-var startActivityButton = document.getElementById("startActivityButton");
-var startButton = document.getElementById("startButton");
-var createNewButton = document.getElementById("createNewButton");
-var timerDisplay = document.getElementById("timerDisplay");
-
-
 //A user should see an error message if they attempt to submit the
 //form without filling out all fields. (Note: The comp shows the error
 //message for forgetting a description - You should mimic this error
-//messaging for all inputs.)
-////////////////// VARIABLES TO ACCESS DOM ////////////
-var buttons = document.getElementById('buttonRow');
-var startActivityButton = document.getElementById('startActivity');
-var startTimerButton = document.getElementById('startTimer');
+//messaging for all inputs.
+var activityButtons = document.getElementById("buttonRow");
+var minutes = document.getElementById("minutes");
+var seconds = document.getElementById("seconds");
+var startActivityButton = document.getElementById('startActivityButton');
+var startTimerButton = document.getElementById('startButton');
 var logActivityButton = document.getElementById('logActivityButton');
-var currentActivity;
+
 var loggedActivities = [];
+var currentActivity;
 ////////// EVENT LISTENERS ///////////////
-buttons.addEventListener('click', activateButton);
-// startActivityButton.addEventListener('click', startActivity);
-// startActivityButton.addEventListener('click', );
-// startTimerButton.addEventListener('click', );
-// logActivityButton.addEventListener('click', );
+activityButtons.addEventListener('click', activateButton);
+startActivityButton.addEventListener('click', startActivity);
+startTimerButton.addEventListener('click', );
+logActivityButton.addEventListener('click', );
+
+minutes.addEventListener("keypress", function (event) {
+  if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
+    event.preventDefault();
+  }
+});
+seconds.addEventListener("keypress", function (event) {
+  if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
+    event.preventDefault();
+  }
+});
+
 ///////////// EVENT HANDLERS & FUNCTIONS ///////////////
-// function startActivity() {
-//   preventEmptyInput();
-  // prevent empty input
-  // prevent e in numbers
-  // if no errors, create new instance
-  // switch to timer page
-  // on the timer page, show minutes, seconds, description, special color outline
-// }
-// function preventEmptyInput() {
-//   var input =
-//   if (input == '') {
-//   }
-// }
-// function onButtonClick() {
-//   changeColor();
-// }
-
-
 function activateButton(event) {
   if (event.target.id === "studyButton") {
     addColor(studyButton, "study-button-active");
@@ -77,3 +53,18 @@ function addColor(button, clickedClass){
 function removeColor(button, clickedClass){
   button.classList.remove(clickedClass)
 }
+
+function startActivity() {
+  preventEmptyInput();
+  //prevent empty input
+  //prevent e in numbers
+  //if no errors, create new instance
+  //switch to timer page
+  //on the timer page, show minutes, seconds, description, special color outline
+}
+
+function preventEmptyInput() {
+  if (input.value === '') {
+    error.classList.remove('hidden');
+  }
+};
