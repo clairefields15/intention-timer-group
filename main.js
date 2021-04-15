@@ -13,7 +13,7 @@ var descriptionError = document.getElementById('descriptionError');
 var minutesError = document.getElementById('minutesError');
 var secondsError = document.getElementById('secondsError');
 var leftSection = document.getElementById('leftSection');
-
+var timerDisplay = document.getElementById('timerDisplay');
 
 var loggedActivities = [];
 var currentActivity;
@@ -68,12 +68,19 @@ function startActivity() {
   preventMinutes();
   preventSeconds();
   //if no errors, create new instance
-  //switch to timer page
+  // hideElement(leftSection);
+  // showElement(timerDisplay);
   //on the timer page, show minutes, seconds, description, special color outline
 }
 
 function preventButtons() {
-  if (!studyButton.clicked) {
+  var isClicked = false;
+  for (var i = 0; i < activityButtons.length ; i++) {
+    if(!activityButtons[i].disabled) {
+      isClicked = true;
+    }
+  }
+  if(!isClicked) {
     categoryError.classList.remove('hidden')
   }
 }
@@ -96,11 +103,11 @@ function preventSeconds() {
   }
 }
 
-function showElement() {
-
+function showElement(element) {
+  element.classList.remove('hidden');
 }
 
 
-function hideElement() {
-
+function hideElement(element) {
+  element.classList.add('hidden');
 }
