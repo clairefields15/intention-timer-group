@@ -86,12 +86,6 @@ h2 {
 
 .button-container {
   display: flex;
-  /* justify-content: space-between; */
-  /* align-items: center; */
-}
-
-.input-form {
-  /* align-self: flex-end; */
 }
 
 .form-input {
