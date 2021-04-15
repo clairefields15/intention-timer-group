@@ -1,5 +1,5 @@
 class Activity {
-  constructor(category, description, minutes, seconds) {
+  constructor(category, description, minutes, id) {
     this.category = category;
     this.description = description;
     this.minutes = minutes;
@@ -15,19 +15,16 @@ class Activity {
     //should decriments this.minutes and this.seconds
     //the user should see the timer decrimenting
     //when timer completes, an alert should appear
+    //we'll have to do this inner html once we get to this part
   }
 
   markComplete() {
-    //fired when a user acknowledges completion by clicking log Activity
-    //change the data model!
-    //change this.completed to true
-    //a card is created with category, time, and user input for what would you like to accomplish during this time
-    //card should appear under past activities
+    this.completed = true;
   }
 
-  saveToStorage() {
-    //save to localStorage
-    //use JSON to convert to string
-    //setItem in localStorage
+  saveToStorage(pastActivities) {
+    pastActivities.push(currentCard);
+    var cards = JSON.stringify(pastActivities);
+    localStorage.setItem('userActivities', cards);
   }
 }
