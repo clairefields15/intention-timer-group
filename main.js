@@ -23,7 +23,7 @@ var currentActivity;
 ////////// EVENT LISTENERS ///////////////
 activityButtons.addEventListener('click', activateButton);
 startActivityButton.addEventListener('click', startActivity);
-// startTimerButton.addEventListener('click', );
+// startTimerButton.addEventListener('click', startTimer);
 // logActivityButton.addEventListener('click', );
 
 minutesInput.addEventListener("keypress", function (event) {
@@ -31,6 +31,7 @@ minutesInput.addEventListener("keypress", function (event) {
     event.preventDefault();
   }
 });
+
 secondsInput.addEventListener("keypress", function (event) {
   if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
     event.preventDefault();
@@ -66,27 +67,6 @@ function removeColor(button, clickedClass){
   button.classList.remove(clickedClass)
 }
 
-function startActivity() {
-  event.preventDefault();
-  preventButtons();
-  preventAccomplish();
-  preventMinutes();
-  preventSeconds();
-  //if no errors, create new instance
-  hideElement(activityForm);
-  activity.innerText = 'Current Activity'
-  showElement(timerDisplay);
-  //on the timer page, show minutes, seconds, description, special color outline
-}
-
-function preventButtons() {
-  if(studyButton.disabled || meditateButton.disabled || exerciseButton.disabled) {
-    hideElement(categoryError)
-  } else {
-    showElement(categoryError)
-  }
-}
-
 function disableStudyButton() {
   if (studyButton.disabled = true) {
     meditateButton.disabled = false;
@@ -108,9 +88,54 @@ function disableExerciseButton() {
   }
 }
 
+function startActivity() {
+  event.preventDefault();
+  if(!checkForErrors()) {
+    //create new instance out of the user input
+    // var currentActivity = new Activity(all our .value)
+    hideElement(activityForm);
+    activity.innerText = 'Current Activity'
+    showElement(timerDisplay);
+    //show timer display with all info and correct color border
+    //render this.minutes and this.seconds in the DOM
+    //render border color in the DOM
+    // if this.category is study classList.add(start-study-button)
+    // if this.category is meditate, classList.add(start-meditate-button)
+    // if this.category is exercise, classList.add(start-exercise-button)
+  }
+}
+
+function checkForErrors() {
+  var hasError = false;
+  debugger
+  if(preventButtons()) {
+    hasError = true;
+  }
+  if (preventAccomplish()) {
+    hasError = true;
+  }
+  if (preventMinutes()) {
+    hasError = true;
+  }
+  if (preventSeconds()) {
+    hasError = true;
+  }
+  return hasError
+}
+
+function preventButtons() {
+  if(studyButton.disabled || meditateButton.disabled || exerciseButton.disabled) {
+    hideElement(categoryError)
+  } else {
+    showElement(categoryError)
+    return true
+  }
+}
+
 function preventAccomplish() {
   if (!accomplishInput.value) {
-    showElement(descriptionError)
+    showElement(descriptionError);
+    return true;
   } else {
     hideElement(descriptionError)
   }
@@ -119,6 +144,7 @@ function preventAccomplish() {
 function preventMinutes() {
   if (!minutesInput.value){
     showElement(minutesError)
+    return true;
   } else{
     hideElement(minutesError)
   }
@@ -127,6 +153,7 @@ function preventMinutes() {
 function preventSeconds() {
   if (!secondsInput.value){
     showElement(secondsError)
+    return true;
   } else{
     hideElement(secondsError)
   }
