@@ -9,8 +9,8 @@ class Activity {
   }
 
   startTimer() {
+    console.log('timer started!')
     //fired when you click start activity button
-    //check all 4 inputs, if any are missing, throw an error message
     //if all inputs are good, begin countdown
     //should decriments this.minutes and this.seconds
     //the user should see the timer decrimenting

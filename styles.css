@@ -22,26 +22,35 @@ main {
 }
 
 .left-section {
-  border-right: 3px solid #46424D;
-  height: 1000px;
+  height: 100vh;
+}
+
+.right-section {
+  border-left: 3px solid #46424D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.activity-form,
+.timer-display {
+  background-color: #46424D;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  margin: 10px 30px 20px 30px;
+  border-radius: 10px;
+  border-style: solid #46424D;
+  box-shadow: 8px 8px #26222D;
+  height: 500px;
 }
 
 .new-activity {
   padding: 35px 0 0 30px;
   font-weight: 300;
   font-size: 26px;
-}
-
-.activity-form {
-  background-color: #46424D;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 64px;
-  margin: 10px 30px 20px 30px;
-  border-radius: 10px;
-  border-style: solid #46424D;
-  box-shadow: 8px 8px #26222D;
 }
 
 .new-activity-section {
@@ -74,7 +83,7 @@ main {
   border-color: white;
   border-radius: 5px;
   border-style: solid;
-  margin: 15px 25px 40px 25px;
+  margin: 15px 25px 30px 25px;
   font-size: 21px;
   font-weight: 400;
   outline: none;
@@ -146,8 +155,8 @@ main {
 
 .start-button {
   background-color: #46424D;
-  height: 160px;
-  width: 160px;
+  height: 220px;
+  width: 220px;
   border: 4px solid #fff;
   border-radius: 50%;
   font-size: 29px;
@@ -173,7 +182,6 @@ main {
   margin-bottom: 480px;
   margin-left: 225px;
 }
-
 
 .input-label{
   background-color: #46424D;
@@ -236,7 +244,7 @@ main {
   background-color: #46424D;
   color: #fff;
   font-weight: 300;
-  font-size: 29px;
+  font-size: 22px;
 }
 
 .countdown {
@@ -250,10 +258,6 @@ main {
   display: flex;
 }
 
-.hidden {
-  display: none;
-}
-
 .top-text {
   margin-top: 40px;
   font-size: 14pt;
@@ -264,16 +268,9 @@ main {
   font-size: 14pt;
 }
 
-.right-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
 .past-activities {
   margin-right: 315px;
-  margin-top: 20px;
+  margin-top: 45px;
 }
 
 .activity-card {
@@ -324,4 +321,12 @@ main {
 .activity-card-styles > p {
   background-color: #46424D;
   font-size: 19px;
+}
+
+
+
+
+
+.hidden {
+  display: none;
 }

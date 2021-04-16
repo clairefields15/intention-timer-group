@@ -14,6 +14,8 @@ var minutesError = document.getElementById('minutesError');
 var secondsError = document.getElementById('secondsError');
 var leftSection = document.getElementById('leftSection');
 var timerDisplay = document.getElementById('timerDisplay');
+var activityForm = document.getElementById('activityForm')
+var activity = document.getElementById('newActivity');
 
 var loggedActivities = [];
 var currentActivity;
@@ -21,7 +23,7 @@ var currentActivity;
 ////////// EVENT LISTENERS ///////////////
 activityButtons.addEventListener('click', activateButton);
 startActivityButton.addEventListener('click', startActivity);
-// startTimerButton.addEventListener('click', );
+// startTimerButton.addEventListener('click', startTimer);
 // logActivityButton.addEventListener('click', );
 
 minutesInput.addEventListener("keypress", function (event) {
@@ -29,6 +31,7 @@ minutesInput.addEventListener("keypress", function (event) {
     event.preventDefault();
   }
 });
+
 secondsInput.addEventListener("keypress", function (event) {
   if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
     event.preventDefault();
@@ -43,14 +46,17 @@ function activateButton(event) {
     addColor(studyButton, "study-button-active");
     removeColor(meditateButton, "meditate-button-active");
     removeColor(exerciseButton, "exercise-button-active");
+    disableStudyButton();
   } else if (category === "meditateButton") {
     addColor(meditateButton, "meditate-button-active");
     removeColor(studyButton, "study-button-active");
     removeColor(exerciseButton, "exercise-button-active");
+    disableMeditateButton();
   } else if (category === "exerciseButton") {
     addColor(exerciseButton, "exercise-button-active");
     removeColor(studyButton, "study-button-active");
     removeColor(meditateButton, "meditate-button-active");
+    disableExerciseButton();
   }
 }
 
@@ -61,52 +67,101 @@ function removeColor(button, clickedClass){
   button.classList.remove(clickedClass)
 }
 
+function disableStudyButton() {
+  if (studyButton.disabled = true) {
+    meditateButton.disabled = false;
+    exerciseButton.disabled = false;
+  }
+}
+
+function disableMeditateButton() {
+  if (meditateButton.disabled = true) {
+    studyButton.disabled = false;
+    exerciseButton.disabled = false;
+  }
+}
+
+function disableExerciseButton() {
+  if (exerciseButton.disabled = true) {
+    studyButton.disabled = false;
+    meditateButton.disabled = false;
+  }
+}
+
 function startActivity() {
   event.preventDefault();
-  preventButtons();
-  preventAccomplish();
-  preventMinutes();
-  preventSeconds();
-  //if no errors, create new instance
-  // hideElement(leftSection);
-  // showElement(timerDisplay);
-  //on the timer page, show minutes, seconds, description, special color outline
+  if(!checkForErrors()) {
+    //create new instance out of the user input
+    // var currentActivity = new Activity(all our .value)
+    hideElement(activityForm);
+    activity.innerText = 'Current Activity'
+    showElement(timerDisplay);
+    //show timer display with all info and correct color border
+    //render this.minutes and this.seconds in the DOM
+    //render border color in the DOM
+    // if this.category is study classList.add(start-study-button)
+    // if this.category is meditate, classList.add(start-meditate-button)
+    // if this.category is exercise, classList.add(start-exercise-button)
+  }
+}
+
+function checkForErrors() {
+  var hasError = false;
+  debugger
+  if(preventButtons()) {
+    hasError = true;
+  }
+  if (preventAccomplish()) {
+    hasError = true;
+  }
+  if (preventMinutes()) {
+    hasError = true;
+  }
+  if (preventSeconds()) {
+    hasError = true;
+  }
+  return hasError
 }
 
 function preventButtons() {
-  var isClicked = false;
-  for (var i = 0; i < activityButtons.length ; i++) {
-    if(!activityButtons[i].disabled) {
-      isClicked = true;
-    }
-  }
-  if(!isClicked) {
-    categoryError.classList.remove('hidden')
+  if(studyButton.disabled || meditateButton.disabled || exerciseButton.disabled) {
+    hideElement(categoryError)
+  } else {
+    showElement(categoryError)
+    return true
   }
 }
 
 function preventAccomplish() {
   if (!accomplishInput.value) {
-    descriptionError.classList.remove('hidden')
+    showElement(descriptionError);
+    return true;
+  } else {
+    hideElement(descriptionError)
   }
 }
 
 function preventMinutes() {
   if (!minutesInput.value){
-    minutesError.classList.remove('hidden')
+    showElement(minutesError)
+    return true;
+  } else{
+    hideElement(minutesError)
   }
 }
 
 function preventSeconds() {
   if (!secondsInput.value){
-    secondsError.classList.remove('hidden')
+    showElement(secondsError)
+    return true;
+  } else{
+    hideElement(secondsError)
   }
 }
 
 function showElement(element) {
   element.classList.remove('hidden');
 }
-
 
 function hideElement(element) {
   element.classList.add('hidden');

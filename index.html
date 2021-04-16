@@ -13,19 +13,21 @@
     <main>
       <section class="left-section" id="leftSection">
         <h2 class="new-activity" id="newActivity">New Activity</h2>
-        <form class="activity-form" id="activityForm"><div class="selection-header">Select a category:</div>
+        <section class="activity-form" id="activityForm">
+          <div class="selection-header">Select a category:</div>
           <section class="button-row" id="buttonRow">
             <button class="button study-button" id="studyButton">Study</button>
             <button class="button meditate-button" id="meditateButton"><br>Meditate</button>
             <button class="button exercise-button" id="exerciseButton"><br>Exercise</button>
           </section>
-          <p class="error-message hidden" id="categoryError"><img class="error-image" src="./assets/warning.svg">A category is required.</p>
+          <p class="error-message hidden" id="categoryError">
+            <img class="error-image" src="./assets/warning.svg">A category is required.</p>
           <label class="input-label">What would you like to accomplish during this time?</label>
           <input type="text" class="input-form" id="descriptionInput"><br>
           <p class="error-message hidden" id="descriptionError"><img class="error-image" src="./assets/warning.svg">A description is required.</p>
           <div class="time-input">
             <label class="input-label">Minutes</label>
-            <label class="input-label">Seconds</label><br>
+            <label class="input-label">Seconds</label>
           </div>
           <section class="time-inputs" id="timeInputs">
             <input type="number" class="input-form" id="minutes">
@@ -37,26 +39,28 @@
             <button class="action-button" id="startActivityButton">START ACTIVITY</button>
           </div>
         </form>
-        <section class="activity-selector timer-display hidden" id="timerDisplay">
-          <h2 class="description-title" id="descriptionTitle">placeholder</h2>
-          <div class="timer" id="timer">
-            <p class="countdown" id="minutesCountdown">00</p>
-            <p class="countdown">:</p>
-            <p class="countdown" id="secondsCountdown">00</p>
-          </div>
-          <p class="countdown hidden" id="motivation">Great job, you have finished your activity!</p>
-          <button class="start-button" id="startButton">START</button>
-          <button class="action-button log-activity-button hidden" id="logActivityButton">LOG ACTIVITY</button>
-        </form>
-        <section class="activity-selector new-activity-section hidden" id="newActivitySection">
-          <button class="create-new-button action-button" id="createNewButton">CREATE A NEW ACTIVITY</button>
-        </section>
       </section>
-      <section class="right-section" id="rightSection">
-        <h2 class="past-activities">Past Activities</h2>
-          <p class="top-text">You haven't logged any activites yet.</p><br>
-          <p class="bottom-text">Complete the form to the left to get started!</p>
+      <section class="timer-display hidden" id="timerDisplay">
+        <h2 class="description-title" id="descriptionTitle">Deep Breathing</h2>
+        <div class="timer" id="timer">
+          <p class="countdown" id="minutesCountdown">00</p>
+          <p class="countdown">:</p>
+          <p class="countdown" id="secondsCountdown">00</p>
+        </div>
+        <p class="countdown hidden" id="motivation">Great job, you have finished your activity!</p>
+        <button class="start-button" id="startButton">START</button>
+        <button class="action-button log-activity-button hidden" id="logActivityButton">LOG ACTIVITY</button>
+      </form>
+      <section class="activity-selector new-activity-section hidden" id="newActivitySection">
+        <button class="create-new-button action-button" id="createNewButton">CREATE A NEW ACTIVITY</button>
       </section>
+      </section>
+    </section>
+    <section class="right-section" id="rightSection">
+      <h2 class="past-activities">Past Activities</h2>
+        <p class="top-text">You haven't logged any activites yet.</p><br>
+        <p class="bottom-text">Complete the form to the left to get started!</p>
+    </section>
     </main>
   </body>
   <script type="text/javascript" src="Activity.js"></script>
