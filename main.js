@@ -39,53 +39,12 @@ secondsInput.addEventListener("keypress", function (event) {
 });
 
 ///////////// EVENT HANDLERS & FUNCTIONS ///////////////
-function activateButton(event) {
-  event.preventDefault();
-  var category = event.target.id
-  if (category === "studyButton") {
-    addColor(studyButton, "study-button-active");
-    removeColor(meditateButton, "meditate-button-active");
-    removeColor(exerciseButton, "exercise-button-active");
-    disableStudyButton();
-  } else if (category === "meditateButton") {
-    addColor(meditateButton, "meditate-button-active");
-    removeColor(studyButton, "study-button-active");
-    removeColor(exerciseButton, "exercise-button-active");
-    disableMeditateButton();
-  } else if (category === "exerciseButton") {
-    addColor(exerciseButton, "exercise-button-active");
-    removeColor(studyButton, "study-button-active");
-    removeColor(meditateButton, "meditate-button-active");
-    disableExerciseButton();
-  }
-}
 
 function addColor(button, clickedClass){
   button.classList.add(clickedClass)
 }
 function removeColor(button, clickedClass){
   button.classList.remove(clickedClass)
-}
-
-function disableStudyButton() {
-  if (studyButton.disabled = true) {
-    meditateButton.disabled = false;
-    exerciseButton.disabled = false;
-  }
-}
-
-function disableMeditateButton() {
-  if (meditateButton.disabled = true) {
-    studyButton.disabled = false;
-    exerciseButton.disabled = false;
-  }
-}
-
-function disableExerciseButton() {
-  if (exerciseButton.disabled = true) {
-    studyButton.disabled = false;
-    meditateButton.disabled = false;
-  }
 }
 
 function startActivity() {
