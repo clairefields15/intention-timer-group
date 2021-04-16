@@ -14,6 +14,8 @@ var minutesError = document.getElementById('minutesError');
 var secondsError = document.getElementById('secondsError');
 var leftSection = document.getElementById('leftSection');
 var timerDisplay = document.getElementById('timerDisplay');
+var activityForm = document.getElementById('activityForm')
+var activity = document.getElementById('newActivity');
 
 var loggedActivities = [];
 var currentActivity;
@@ -44,25 +46,16 @@ function activateButton(event) {
     removeColor(meditateButton, "meditate-button-active");
     removeColor(exerciseButton, "exercise-button-active");
     disableStudyButton();
-    // studyButton.disabled = true;
-    // meditateButton.disabled = false;
-    // exerciseButton.disabled = false;
   } else if (category === "meditateButton") {
     addColor(meditateButton, "meditate-button-active");
     removeColor(studyButton, "study-button-active");
     removeColor(exerciseButton, "exercise-button-active");
     disableMeditateButton();
-    // studyButton.disabled = false;
-    // meditateButton.disabled = true;
-    // exerciseButton.disabled = false;
   } else if (category === "exerciseButton") {
     addColor(exerciseButton, "exercise-button-active");
     removeColor(studyButton, "study-button-active");
     removeColor(meditateButton, "meditate-button-active");
     disableExerciseButton();
-    // exerciseButton.disabled = true;
-    // studyButton.disabled = false;
-    // meditateButton.disabled = false;
   }
 }
 
@@ -80,8 +73,9 @@ function startActivity() {
   preventMinutes();
   preventSeconds();
   //if no errors, create new instance
-  // hideElement(leftSection);
-  // showElement(timerDisplay);
+  hideElement(activityForm);
+  activity.innerText = 'Current Activity'
+  showElement(timerDisplay);
   //on the timer page, show minutes, seconds, description, special color outline
 }
 
@@ -114,22 +108,6 @@ function disableExerciseButton() {
   }
 }
 
-
-// //this works with a small bug
-// function preventButtons() {
-//   var isClicked = false;
-//   for (var i = 0; i < activityButtons.length ; i++) {
-//     if(!activityButtons[i].disabled) {
-//       isClicked = true;
-//     }
-//   }
-//   if(!isClicked) {
-//     showElement(categoryError)
-//   } else {
-//     hideElement(categoryError)
-//   }
-// }
-
 function preventAccomplish() {
   if (!accomplishInput.value) {
     showElement(descriptionError)
@@ -137,7 +115,6 @@ function preventAccomplish() {
     hideElement(descriptionError)
   }
 }
-
 
 function preventMinutes() {
   if (!minutesInput.value){
@@ -158,7 +135,6 @@ function preventSeconds() {
 function showElement(element) {
   element.classList.remove('hidden');
 }
-
 
 function hideElement(element) {
   element.classList.add('hidden');
