@@ -1,7 +1,8 @@
 var studyButton = document.querySelector('.study-button');
 var meditateButton = document.querySelector('.meditate-button');
 var exerciseButton = document.querySelector('.exercise-button');
-var activityButtons = document.querySelector('.button-row')
+var allButtons = document.querySelectorAll('.cat-button');
+var activityButtonContainer = document.querySelector('.button-row');
 var minutesInput = document.getElementById("minutes");
 var secondsInput = document.getElementById("seconds");
 var startActivityButton = document.getElementById('startActivityButton');
@@ -14,14 +15,14 @@ var minutesError = document.getElementById('minutesError');
 var secondsError = document.getElementById('secondsError');
 var leftSection = document.getElementById('leftSection');
 var timerDisplay = document.getElementById('timerDisplay');
-var activityForm = document.getElementById('activityForm')
+var activityForm = document.getElementById('activityForm');
 var activity = document.getElementById('newActivity');
 
 var loggedActivities = [];
 var currentActivity;
 
 ////////// EVENT LISTENERS ///////////////
-activityButtons.addEventListener('click', activateButton);
+activityButtonContainer.addEventListener('click', activateButton);
 startActivityButton.addEventListener('click', startActivity);
 // startTimerButton.addEventListener('click', startTimer);
 // logActivityButton.addEventListener('click', );
@@ -41,73 +42,65 @@ secondsInput.addEventListener("keypress", function (event) {
 ///////////// EVENT HANDLERS & FUNCTIONS ///////////////
 function activateButton(event) {
   event.preventDefault();
-  var category = event.target.id
-  if (category === "studyButton") {
+  removeAllColors();
+  var category = event.target.id;
+  if (category === "study") {
     addColor(studyButton, "study-button-active");
-    removeColor(meditateButton, "meditate-button-active");
-    removeColor(exerciseButton, "exercise-button-active");
     disableStudyButton();
-  } else if (category === "meditateButton") {
+  } else if (category === "meditate") {
     addColor(meditateButton, "meditate-button-active");
-    removeColor(studyButton, "study-button-active");
-    removeColor(exerciseButton, "exercise-button-active");
     disableMeditateButton();
-  } else if (category === "exerciseButton") {
+  } else if (category === "exercise") {
     addColor(exerciseButton, "exercise-button-active");
-    removeColor(studyButton, "study-button-active");
-    removeColor(meditateButton, "meditate-button-active");
     disableExerciseButton();
   }
-}
+};
 
 function addColor(button, clickedClass){
-  button.classList.add(clickedClass)
-}
+  button.classList.add(clickedClass);
+};
+
 function removeColor(button, clickedClass){
-  button.classList.remove(clickedClass)
-}
+  button.classList.remove(clickedClass);
+};
+
+function removeAllColors() {
+  removeColor(meditateButton, "meditate-button-active");
+  removeColor(exerciseButton, "exercise-button-active");
+  removeColor(studyButton, "study-button-active");
+};
+
+function getSelectedCategory() {
+  for(var i = 0; i <allButtons.length; i++) {
+    if(allButtons[i].disabled) {
+      return allButtons[i].id;
+    }
+  }
+};
 
 function disableStudyButton() {
   if (studyButton.disabled = true) {
     meditateButton.disabled = false;
     exerciseButton.disabled = false;
   }
-}
+};
 
 function disableMeditateButton() {
   if (meditateButton.disabled = true) {
     studyButton.disabled = false;
     exerciseButton.disabled = false;
   }
-}
+};
 
 function disableExerciseButton() {
   if (exerciseButton.disabled = true) {
     studyButton.disabled = false;
     meditateButton.disabled = false;
   }
-}
-
-function startActivity() {
-  event.preventDefault();
-  if(!checkForErrors()) {
-    //create new instance out of the user input
-    // var currentActivity = new Activity(all our .value)
-    hideElement(activityForm);
-    activity.innerText = 'Current Activity'
-    showElement(timerDisplay);
-    //show timer display with all info and correct color border
-    //render this.minutes and this.seconds in the DOM
-    //render border color in the DOM
-    // if this.category is study classList.add(start-study-button)
-    // if this.category is meditate, classList.add(start-meditate-button)
-    // if this.category is exercise, classList.add(start-exercise-button)
-  }
-}
+};
 
 function checkForErrors() {
   var hasError = false;
-  debugger
   if(preventButtons()) {
     hasError = true;
   }
@@ -120,49 +113,70 @@ function checkForErrors() {
   if (preventSeconds()) {
     hasError = true;
   }
-  return hasError
-}
+  return hasError;
+};
 
 function preventButtons() {
   if(studyButton.disabled || meditateButton.disabled || exerciseButton.disabled) {
-    hideElement(categoryError)
+    hideElement(categoryError);
   } else {
-    showElement(categoryError)
-    return true
+    showElement(categoryError);
+    return true;
   }
-}
+};
 
 function preventAccomplish() {
   if (!accomplishInput.value) {
     showElement(descriptionError);
     return true;
   } else {
-    hideElement(descriptionError)
+    hideElement(descriptionError);
   }
-}
+};
 
 function preventMinutes() {
   if (!minutesInput.value){
-    showElement(minutesError)
+    showElement(minutesError);
     return true;
-  } else{
-    hideElement(minutesError)
+  } else {
+    hideElement(minutesError);
   }
-}
+};
 
 function preventSeconds() {
   if (!secondsInput.value){
-    showElement(secondsError)
+    showElement(secondsError);
     return true;
   } else{
-    hideElement(secondsError)
+    hideElement(secondsError);
   }
-}
+};
 
 function showElement(element) {
   element.classList.remove('hidden');
-}
+};
 
 function hideElement(element) {
   element.classList.add('hidden');
+};
+
+function startActivity() {
+  event.preventDefault();
+  if(!checkForErrors()) {
+    var category = getSelectedCategory();
+    currentActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput.value);
+    hideElement(activityForm);
+    showElement(timerDisplay);
+    activity.innerText = 'Current Activity';
+    render();
+  }
+}
+
+function render() {
+  //render this.description in the dom where placeholder is
+  //render this.minutes and this.seconds in the DOM
+  //render border color in the DOM based on category
+  // if this.category is study classList.add(start-study-button)
+  // if this.category is meditate, classList.add(start-meditate-button)
+  // if this.category is exercise, classList.add(start-exercise-button)
 }

@@ -1,5 +1,5 @@
 class Activity {
-  constructor(category, description, minutes, id) {
+  constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
     this.minutes = minutes;
@@ -9,13 +9,9 @@ class Activity {
   }
 
   startTimer() {
-    console.log('timer started!')
-    //fired when you click start activity button
-    //if all inputs are good, begin countdown
+    //fired when you click start button on the timer page
     //should decriments this.minutes and this.seconds
-    //the user should see the timer decrimenting
     //when timer completes, an alert should appear
-    //we'll have to do this inner html once we get to this part
   }
 
   markComplete() {
