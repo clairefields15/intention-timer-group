@@ -23,6 +23,9 @@ var leftSection = document.getElementById('leftSection');
 var timerDisplay = document.getElementById('timerDisplay');
 var activityForm = document.getElementById('activityForm');
 var activity = document.getElementById('newActivity');
+var minCountdown = document.getElementById('minutesCountdown');
+var secCountdown = document.getElementById('secondsCountdown');
+var descriptionTitle = document.getElementById('descriptionTitle');
 
 var loggedActivities = [];
 var currentActivity;
@@ -57,6 +60,7 @@ function selectCategory() {
     showElement(meditateImg)
     hideElement(exerciseImgActive)
     showElement(exerciseImg)
+    startTimerButton.className = 'start-button circle-outline-study';
   } else if (meditateButton.checked) {
     showElement(meditateImgActive)
     hideElement(meditateImg)
@@ -64,6 +68,7 @@ function selectCategory() {
     showElement(studyImg)
     hideElement(exerciseImgActive)
     showElement(exerciseImg)
+    startTimerButton.className = 'start-button circle-outline-meditate';
   } else if (exerciseButton.checked) {
     showElement(exerciseImgActive)
     hideElement(exerciseImg)
@@ -71,13 +76,14 @@ function selectCategory() {
     showElement(studyImg)
     hideElement(meditateImgActive)
     showElement(meditateImg)
+    startTimerButton.className = 'start-button circle-outline-exercise'
   }
 }
 
 function getCategory() {
   if (studyButton.checked) {
     return studyButton.value
-  } else if (meditate.checked) {
+  } else if (meditateButton.checked) {
     return meditateButton.value
   } else if (exerciseButton.checked) {
     return exerciseButton.value
@@ -164,10 +170,7 @@ function startActivity() {
 }
 
 function render() {
-  //render this.description in the dom where placeholder is
-  //render this.minutes and this.seconds in the DOM
-  //render border color in the DOM based on category
-  // if this.category is study classList.add(start-study-button)
-  // if this.category is meditate, classList.add(start-meditate-button)
-  // if this.category is exercise, classList.add(start-exercise-button)
+  descriptionTitle.innerText = currentActivity.description;
+  minCountdown.innerText = currentActivity.minutes;
+  secCountdown.innerText = currentActivity.seconds;
 }

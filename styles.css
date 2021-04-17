@@ -144,16 +144,16 @@ input[value="Exercise"]:checked+label {
   outline: none;
 }
 
-.start-study-button {
-  border-color: #B3FD78;
+.circle-outline-study {
+  border: 4px solid #B3FD78;
 }
 
-.start-meditate-button {
-  border-color: #C278FD;
+.circle-outline-meditate {
+  border: 4px solid #C278FD;
 }
 
-.start-exercise-button {
-  border-color: #FD8078;
+.circle-outline-exercise {
+  border: 4px solid #FD8078;
 }
 
 .create-new-button {
