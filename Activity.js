@@ -9,7 +9,9 @@ class Activity {
   }
 
   startTimer() {
-    //fired when you click start button on the timer page
+    this.minutes = Math.floor(this.minutes*60);
+    this.seconds = this.seconds % 60;
+
     //should decriments this.minutes and this.seconds
     //when timer completes, an alert should appear
   }
