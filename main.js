@@ -191,5 +191,5 @@ function countdown() {
 
 function showComplete(){
   startTimerButton.innerText = 'COMPLETE!';
-  logActivityButton.classList.remove('hidden');
+  showElement(logActivityButton);
 }
