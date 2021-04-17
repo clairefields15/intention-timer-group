@@ -50,7 +50,6 @@ for(var i = 0; i < allButtons.length ; i ++) {
 }
 
 function selectCategory() {
-  var category;
   if (studyButton.checked) {
     showElement(studyImgActive);
     hideElement(studyImg)
@@ -75,9 +74,15 @@ function selectCategory() {
   }
 }
 
-
-
-
+function getCategory() {
+  if (studyButton.checked) {
+    return studyButton.value
+  } else if (meditate.checked) {
+    return meditateButton.value
+  } else if (exerciseButton.checked) {
+    return exerciseButton.value
+  }
+}
 
 function checkForErrors() {
   var hasError = false;
@@ -97,11 +102,17 @@ function checkForErrors() {
 };
 
 function preventButtons() {
-  if(studyButton.disabled || meditateButton.disabled || exerciseButton.disabled) {
+  var isChecked = false;
+  for (var i = 0 ; i < allButtons.length ; i ++) {
+    if(allButtons[i].checked) {
+      isChecked = true;
+      }
+    }
+  if (isChecked) {
     hideElement(categoryError);
   } else {
     showElement(categoryError);
-    return true;
+    return true
   }
 };
 
@@ -143,7 +154,7 @@ function hideElement(element) {
 function startActivity() {
   event.preventDefault();
   if(!checkForErrors()) {
-    var category = getSelectedCategory();
+    var category = getCategory();
     currentActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput.value);
     hideElement(activityForm);
     showElement(timerDisplay);
