@@ -96,6 +96,24 @@ main {
   background-color: transparent;
 }
 
+input[value="study"]:checked+label {
+  border: 2px solid #B3FD78;
+  color: #B3FD78
+}
+
+input[value="meditate"]:checked+label {
+  border: 2px solid #C278FD;
+  color: #C278FD
+}
+
+input[value="exercise"]:checked+label {
+  border: 2px solid #FD8078;
+  color: #FD8078
+}
+
+
+
+
 
 
 .action-button {
