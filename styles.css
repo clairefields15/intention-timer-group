@@ -96,17 +96,17 @@ main {
   background-color: transparent;
 }
 
-input[value="study"]:checked+label {
+input[value="Study"]:checked+label {
   border: 2px solid #B3FD78;
   color: #B3FD78
 }
 
-input[value="meditate"]:checked+label {
+input[value="Meditate"]:checked+label {
   border: 2px solid #C278FD;
   color: #C278FD
 }
 
-input[value="exercise"]:checked+label {
+input[value="Exercise"]:checked+label {
   border: 2px solid #FD8078;
   color: #FD8078
 }
