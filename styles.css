@@ -59,7 +59,7 @@ main {
 }
 
 .selection-header {
-  padding: 9px 0 0 0;
+  padding-bottom: 20px;
   margin-left: 45px;
   background-color: #46424D;
   color: #FFF;
@@ -67,75 +67,54 @@ main {
   font-size: 22px;
 }
 
-.button-image  {
-  background-color: #46424D;
-  height: 33%;
-  width: 45%;
-}
-
-.button {
-  background-color: #46424D;
-  height: 80px;
-  width: 175px;
-  padding: 0;
-  border: 5px;
-  border-width: medium;
-  border-color: white;
-  border-radius: 5px;
-  border-style: solid;
-  margin: 15px 25px 30px 25px;
-  font-size: 21px;
-  font-weight: 400;
-  outline: none;
-}
-
-.study-button {
-  background-image: url("./assets/study.svg");
-  background-repeat: no-repeat;
-  background-size: 22px;
-  background-position: 50% 20%;
-  padding-top: 32px;
-}
-
-.study-button-active {
-  border-color: #B3FD78;
-  color: #B3FD78;
-  background-image: url("./assets/study-active.svg")
-}
-
-.meditate-button {
-  background-image: url("./assets/meditate.svg");
-  background-repeat: no-repeat;
-  background-size: 22px;
-  background-position: 50% 20%;
-  padding-top: 14px;
-}
-
-.meditate-button-active {
-  border-color: #C278FD;
-  color: #C278FD;
-  background-image: url("./assets/meditate-active.svg")
-}
-
-.exercise-button {
-  background-image: url("./assets/exercise.svg");
-  background-repeat: no-repeat;
-  background-size: 22px;
-  background-position: 50% 20%;
-  padding-top: 14px;
-}
-
-.exercise-button-active {
-  border-color: #FD8078;
-  color: #FD8078;
-  background-image: url("./assets/exercise-active.svg")
-}
-
 .button-row {
   display: flex;
   justify-content: space-around;
+  margin: 0px;
   background-color: inherit;
 }
+
+.button-row input {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.button-row label {
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #46424D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+}
+
+.btnimg {
+  height: 25px;
+  background-color: transparent;
+}
+
+input[value="study"]:checked+label {
+  border: 2px solid #B3FD78;
+  color: #B3FD78
+}
+
+input[value="meditate"]:checked+label {
+  border: 2px solid #C278FD;
+  color: #C278FD
+}
+
+input[value="exercise"]:checked+label {
+  border: 2px solid #FD8078;
+  color: #FD8078
+}
+
+
+
+
+
 
 .action-button {
   margin: 20px 45px 20px 0;
