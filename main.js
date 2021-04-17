@@ -32,7 +32,7 @@ var currentActivity;
 
 ////////// EVENT LISTENERS ///////////////
 startActivityButton.addEventListener('click', startActivity);
-// startTimerButton.addEventListener('click', startTimer);
+startTimerButton.addEventListener('click', countdown);
 // logActivityButton.addEventListener('click', );
 
 minutesInput.addEventListener("keypress", function (event) {
@@ -173,4 +173,9 @@ function render() {
   descriptionTitle.innerText = currentActivity.description;
   minCountdown.innerText = currentActivity.minutes;
   secCountdown.innerText = currentActivity.seconds;
+}
+
+function countdown() {
+  console.log('countdown started');
+  console.log(currentActivity.startTimer())
 }
