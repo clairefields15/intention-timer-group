@@ -16,9 +16,18 @@
         <section class="activity-form" id="activityForm">
           <div class="selection-header">Select a category:</div>
           <section class="button-row" id="buttonRow">
-            <button class="button cat-button study-button" id="study">Study</button>
-            <button class="button cat-button meditate-button" id="meditate"><br>Meditate</button>
-            <button class="button cat-button exercise-button" id="exercise"><br>Exercise</button>
+            <input type="radio" name="group1" value="study" class="button study-button" id="studyButton">
+            <label for="studyButton">
+            <img class="btnimg study-image" src="./assets/study.svg">
+            <img class="btnimg study-active hidden" src="./assets/study-active.svg">Study</label>
+            <input type="radio" name="group1" value="meditate" class="button meditate-button" id="meditateButton">
+            <label for="meditateButton">
+            <img class="btnimg meditate-image" src="./assets/meditate.svg">
+            <img class="btnimg meditate-active hidden" src="./assets/meditate-active.svg">Meditate</label>
+            <input type="radio" name="group1" value="exercise" class="button exercise-button" id="exerciseButton">
+            <label for="exerciseButton">
+            <img class="btnimg exercise-image" src="./assets/exercise.svg">
+            <img class="btnimg exercise-active hidden" src="./assets/exercise-active.svg">Exercise</label>
           </section>
           <p class="error-message hidden" id="categoryError">
             <img class="error-image" src="./assets/warning.svg">A category is required.</p>
