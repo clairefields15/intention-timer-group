@@ -17,6 +17,10 @@ var leftSection = document.getElementById('leftSection');
 var timerDisplay = document.getElementById('timerDisplay');
 var activityForm = document.getElementById('activityForm');
 var activity = document.getElementById('newActivity');
+//added darla apr 16 2021 7pm
+var minCountdown = document.getElementById('minutesCountdown');
+var secCountdown = document.getElementById('secondsCountdown');
+var descriptionTitle = document.getElementById('descriptionTitle');
 
 var loggedActivities = [];
 var currentActivity;
@@ -82,6 +86,7 @@ function disableStudyButton() {
   if (studyButton.disabled = true) {
     meditateButton.disabled = false;
     exerciseButton.disabled = false;
+    startTimerButton.className = 'start-button circle-outline-study';
   }
 };
 
@@ -89,6 +94,7 @@ function disableMeditateButton() {
   if (meditateButton.disabled = true) {
     studyButton.disabled = false;
     exerciseButton.disabled = false;
+    startTimerButton.className = 'start-button circle-outline-meditate';
   }
 };
 
@@ -96,6 +102,7 @@ function disableExerciseButton() {
   if (exerciseButton.disabled = true) {
     studyButton.disabled = false;
     meditateButton.disabled = false;
+    startTimerButton.className = 'start-button circle-outline-exercise';
   }
 };
 
@@ -173,10 +180,7 @@ function startActivity() {
 }
 
 function render() {
-  //render this.description in the dom where placeholder is
-  //render this.minutes and this.seconds in the DOM
-  //render border color in the DOM based on category
-  // if this.category is study classList.add(start-study-button)
-  // if this.category is meditate, classList.add(start-meditate-button)
-  // if this.category is exercise, classList.add(start-exercise-button)
+  descriptionTitle.innerText = currentActivity.description;
+  minCountdown.innerText = currentActivity.minutes;
+  secCountdown.innerText = currentActivity.seconds;
 }
