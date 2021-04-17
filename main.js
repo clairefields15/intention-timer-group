@@ -188,3 +188,8 @@ function render() {
 function countdown() {
   currentActivity.startTimer();
 }
+
+function showComplete(){
+  startTimerButton.innerText = 'COMPLETE!';
+  logActivityButton.classList.remove('hidden');
+}
