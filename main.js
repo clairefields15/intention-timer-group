@@ -32,7 +32,7 @@ var currentActivity;
 
 ////////// EVENT LISTENERS ///////////////
 startActivityButton.addEventListener('click', startActivity);
-// startTimerButton.addEventListener('click', startTimer);
+startTimerButton.addEventListener('click', countdown);
 // logActivityButton.addEventListener('click', );
 
 minutesInput.addEventListener("keypress", function (event) {
@@ -107,6 +107,7 @@ function checkForErrors() {
   return hasError;
 };
 
+
 function preventButtons() {
   var isChecked = false;
   for (var i = 0 ; i < allButtons.length ; i ++) {
@@ -157,11 +158,20 @@ function hideElement(element) {
   element.classList.add('hidden');
 };
 
+function checkSeconds() {
+  if(secondsInput.value < 10) {
+     return `0${secondsInput.value}`;
+  } else{
+    return secondsInput.value
+  }
+}
+
 function startActivity() {
   event.preventDefault();
   if(!checkForErrors()) {
     var category = getCategory();
-    currentActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput.value);
+    var secondsInput = checkSeconds();
+    currentActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput);
     hideElement(activityForm);
     showElement(timerDisplay);
     activity.innerText = 'Current Activity';
@@ -173,4 +183,13 @@ function render() {
   descriptionTitle.innerText = currentActivity.description;
   minCountdown.innerText = currentActivity.minutes;
   secCountdown.innerText = currentActivity.seconds;
+}
+
+function countdown() {
+  currentActivity.startTimer();
+}
+
+function showComplete(){
+  startTimerButton.innerText = 'COMPLETE!';
+  showElement(logActivityButton);
 }

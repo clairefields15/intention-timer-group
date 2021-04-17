@@ -9,10 +9,19 @@ class Activity {
   }
 
   startTimer() {
-    //fired when you click start button on the timer page
-    //should decriments this.minutes and this.seconds
-    //when timer completes, an alert should appear
-  }
+    var totalTime = Number(this.minutes * 60) + Number(this.seconds);
+    var countDownTime = setInterval(function() {
+      var remainingMinutes = Math.floor(totalTime / 60);
+      var remainingSeconds = totalTime % 60;
+      minCountdown.innerText = remainingMinutes < 10 ? '0' + remainingMinutes : remainingMinutes;
+      secCountdown.innerText = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
+      totalTime--;
+      if (totalTime < 0) {
+        clearInterval(countDownTime);
+        showComplete();
+      }
+    }, 1000);
+  };
 
   markComplete() {
     this.completed = true;
