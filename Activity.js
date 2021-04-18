@@ -27,9 +27,7 @@ class Activity {
     this.completed = true;
   }
 
-  saveToStorage(pastActivities) {
-    pastActivities.push(currentCard);
-    var cards = JSON.stringify(pastActivities);
-    localStorage.setItem('userActivities', cards);
+  saveToStorage() {
+    localStorage.setItem(JSON .stringify(this.id), JSON.stringify(this));
   }
 }
