@@ -1,4 +1,4 @@
-class Activity {
+ class Activity {
   constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
