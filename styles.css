@@ -140,15 +140,15 @@ input[value="Exercise"]:checked+label {
 }
 
 .circle-outline-Study {
-  border: 4px solid #B3FD78;
+  border: 2px solid #B3FD78;
 }
 
 .circle-outline-Meditate {
-  border: 4px solid #C278FD;
+  border: 2px solid #C278FD;
 }
 
 .circle-outline-Exercise {
-  border: 4px solid #FD8078;
+  border: 2px solid #FD8078;
 }
 
 .create-new-button {
@@ -309,40 +309,46 @@ input[value="Exercise"]:checked+label {
 
 .card-flexbox {
   display: flex;
+  border-radius: 5px;
+  background-color: #46424D;
+  margin: 0px 12px 20px;
 }
 
 .log-activity-card {
-  border-radius: 5px;
-  height: 62px;
   width: 93%;
-  margin: 0px 12px;
-  margin-bottom: 2%;
+  margin-left: 12px;
   padding: 1%;
   padding-top: 2%;
   text-align: left;
+  background-color: #46424D;
 }
 
 .selected-type {
-  font-weight: 400;
+  font-weight: bold;
   background-color: #46424D;
 }
 
 .selected-time{
   background-color: #46424D;
+  font-size: 14px;
 }
 
 .selected-activity {
   background-color: #46424D;
+  margin-top: 5px;
 }
 
  .card-line {
-  align-self: flex-end;
-  align-items: stretch;
+background-color: #C278FD;
+height: 20px;
+border-radius: 2px;
+margin-top: 2%;
+margin-right: 2%;
 }
 
-/* .selected-activity {
-  margin-top: 10px;
-} */
+.selected-activity {
+  margin-top: 5px;
+}
 
 aside {
   width: 95%;
