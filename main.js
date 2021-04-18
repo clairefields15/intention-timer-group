@@ -222,6 +222,8 @@ function renderCard() {
         <p class="selected-type">${loggedActivities[i].category}</p>
         <p class="selected-time">${loggedActivities[i].minutes} MIN ${loggedActivities[i].seconds} SECONDS</p>
         <p class="selected-activity">${loggedActivities[i].description}</p>
+      </div>
+      <div class="card-line">
         <p class="circle-outline-${loggedActivities[i].category} card-line"></p>
       </div>
     </section>
