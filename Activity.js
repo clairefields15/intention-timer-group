@@ -27,9 +27,9 @@
     this.completed = true;
   }
 
-  saveToStorage(loggedActivities) {
-    // loggedActivities.push(currentActivity);
-    var cards = JSON.stringify(loggedActivities);
-    localStorage.setItem('userActivities', cards);
+  saveToStorage() {
+    // loggedActivities.push(currentCard);
+    // var cards = JSON.stringify(loggedActivities);
+    localStorage.setItem(JSON.stringify(this.id), JSON.stringify(this));
   }
 }

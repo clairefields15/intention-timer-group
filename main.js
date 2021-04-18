@@ -38,6 +38,7 @@ startActivityButton.addEventListener('click', startActivity);
 startTimerButton.addEventListener('click', countdown);
 logActivityButton.addEventListener('click', logActivity);
 createNewActivityButton.addEventListener('click', goHome);
+window.addEventListener('load', displayLocalStorage);
 
 minutesInput.addEventListener("keypress", function (event) {
   if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
@@ -51,7 +52,6 @@ secondsInput.addEventListener("keypress", function (event) {
   }
 });
 
-window.addEventListener('load', displayLocalStorage);
 
 ///////////// EVENT HANDLERS & FUNCTIONS ///////////////
 for(var i = 0; i < allButtons.length ; i ++) {
@@ -205,7 +205,7 @@ function logActivity() {
   renderCard();
   hideElement(timerDisplay);
   showElement(newActivitySection);
-  currentActivity.saveToStorage(loggedActivities);
+  currentActivity.saveToStorage(currentActivity);
   displayLocalStorage();
 }
 
@@ -213,14 +213,27 @@ function addToLoggedActivities() {
   if(!loggedActivities.includes(currentActivity)) {
     currentActivity.markComplete();
     loggedActivities.push(currentActivity);
-    console.log(loggedActivities);
   }
 }
 
 function displayLocalStorage() {
-  var loggedActivities = JSON.parse(loggedActivities)
-    return loggedActivities
-}
+   var loggedActivities = JSON.parse(localStorage.getItem('loggedActivities'));
+    if (!loggedActivities) {
+      return;
+    }
+    for (var i = 0; i < loggedActivities.length; i++) {
+      loggedActivities.push(new Activity(loggedActivities[i].category, loggedActivities[i].minutes, loggedActivities[i].seconds, loggedActivities[i].description))
+    }
+    renderCard();
+  }
+  // if (localStorage) {
+  //   for (var i = 0; i < localStorage.length; i++) {
+  //     var activityID = localStorage.key(i);
+  //     var activityObject = JSON.parse(localStorage.getItem(activityID));
+  //     activityObject = new Activity(activityObject.category, activityObject.description, activityObject.minutes, activityObject.seconds);
+  //           loggedActivities.push(activityObject);
+  //  render();
+  // }
 
 function renderCard() {
   cardsContainer.innerHTML = '';
