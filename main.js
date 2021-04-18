@@ -226,7 +226,7 @@ function displayLocalStorage() {
     }
     renderCard();
   }
-  // if (localStorage) {
+  // if (localStora ge) {
   //   for (var i = 0; i < localStorage.length; i++) {
   //     var activityID = localStorage.key(i);
   //     var activityObject = JSON.parse(localStorage.getItem(activityID));
@@ -234,7 +234,7 @@ function displayLocalStorage() {
   //           loggedActivities.push(activityObject);
   //  render();
   // }
-
+  
 function renderCard() {
   cardsContainer.innerHTML = '';
 
@@ -245,8 +245,6 @@ function renderCard() {
         <p class="selected-type">${loggedActivities[i].category}</p>
         <p class="selected-time">${loggedActivities[i].minutes} MIN ${loggedActivities[i].seconds} SECONDS</p>
         <p class="selected-activity">${loggedActivities[i].description}</p>
-      </div>
-      <div class="card-line">
         <p class="circle-outline-${loggedActivities[i].category} card-line"></p>
       </div>
     </section>
