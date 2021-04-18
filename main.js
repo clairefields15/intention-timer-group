@@ -51,6 +51,8 @@ secondsInput.addEventListener("keypress", function (event) {
   }
 });
 
+window.addEventListener('load', displayLocalStorage);
+
 ///////////// EVENT HANDLERS & FUNCTIONS ///////////////
 for(var i = 0; i < allButtons.length ; i ++) {
   allButtons[i].addEventListener('click', selectCategory)
@@ -203,13 +205,21 @@ function logActivity() {
   renderCard();
   hideElement(timerDisplay);
   showElement(newActivitySection);
+  currentActivity.saveToStorage(loggedActivities);
+  displayLocalStorage();
 }
 
 function addToLoggedActivities() {
   if(!loggedActivities.includes(currentActivity)) {
     currentActivity.markComplete();
     loggedActivities.push(currentActivity);
+    console.log(loggedActivities);
   }
+}
+
+function displayLocalStorage() {
+  var loggedActivities = JSON.parse(loggedActivities)
+    return loggedActivities
 }
 
 function renderCard() {

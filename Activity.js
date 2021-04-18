@@ -1,4 +1,4 @@
-class Activity {
+ class Activity {
   constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
@@ -27,9 +27,9 @@ class Activity {
     this.completed = true;
   }
 
-  saveToStorage(pastActivities) {
-    pastActivities.push(currentCard);
-    var cards = JSON.stringify(pastActivities);
+  saveToStorage(loggedActivities) {
+    // loggedActivities.push(currentActivity);
+    var cards = JSON.stringify(loggedActivities);
     localStorage.setItem('userActivities', cards);
   }
 }
