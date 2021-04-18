@@ -274,3 +274,22 @@ function clearFormFields() {
   hideElement(studyImgActive);
   hideElement(exerciseImgActive);
 }
+
+function displayLocalStorage() {
+   var loggedActivities = JSON.parse(localStorage.getItem('loggedActivities'));
+    if (!loggedActivities) {
+      return;
+    }
+    for (var i = 0; i < loggedActivities.length; i++) {
+      loggedActivities.push(new Activity(loggedActivities[i].category, loggedActivities[i].minutes, loggedActivities[i].seconds, loggedActivities[i].description))
+    }
+    renderCard();
+  }
+  // if (localStora ge) {
+  //   for (var i = 0; i < localStorage.length; i++) {
+  //     var activityID = localStorage.key(i);
+  //     var activityObject = JSON.parse(localStorage.getItem(activityID));
+  //     activityObject = new Activity(activityObject.category, activityObject.description, activityObject.minutes, activityObject.seconds);
+  //           loggedActivities.push(activityObject);
+  //  render();
+  // }

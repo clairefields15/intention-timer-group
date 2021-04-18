@@ -28,8 +28,6 @@
   }
 
   saveToStorage() {
-    // loggedActivities.push(currentCard);
-    // var cards = JSON.stringify(loggedActivities);
-    localStorage.setItem(JSON.stringify(this.id), JSON.stringify(this));
+    localStorage.setItem(JSON .stringify(this.id), JSON.stringify(this));
   }
 }
