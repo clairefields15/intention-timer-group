@@ -98,17 +98,17 @@ main {
 
 input[value="Study"]:checked+label {
   border: 2px solid #B3FD78;
-  color: #B3FD78
+  color: #B3FD78;
 }
 
 input[value="Meditate"]:checked+label {
   border: 2px solid #C278FD;
-  color: #C278FD
+  color: #C278FD;
 }
 
 input[value="Exercise"]:checked+label {
   border: 2px solid #FD8078;
-  color: #FD8078
+  color: #FD8078;
 }
 
 .action-button {
@@ -185,7 +185,7 @@ input[value="Exercise"]:checked+label {
  background-color: #46424D;
  font-size: 16px;
  font-weight: 400;
- color: #EFB7EC
+ color: #EFB7EC;
 }
 
 .error-image {
@@ -353,7 +353,6 @@ margin-right: 2%;
 aside {
   width: 95%;
 }
-
 
 .hidden {
   display: none;
