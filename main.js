@@ -1,34 +1,40 @@
 var studyButton = document.querySelector('.study-button');
 var studyImg = document.querySelector('#studyImage');
-var studyImgActive = document.querySelector('#studyImageActive')
+var studyImgActive = document.querySelector('#studyImageActive');
+
 var meditateButton = document.querySelector('.meditate-button');
 var meditateImg = document.querySelector('#meditateImage')
-var meditateImgActive = document.querySelector('#meditateImageActive')
+var meditateImgActive = document.querySelector('#meditateImageActive');
+
 var exerciseButton = document.querySelector('.exercise-button');
-var exerciseImg = document.querySelector('#exerciseImage')
-var exerciseImgActive = document.querySelector('#exerciseImageActive')
+var exerciseImg = document.querySelector('#exerciseImage');
+var exerciseImgActive = document.querySelector('#exerciseImageActive');
+//button qs
 var allButtons = document.querySelectorAll('.button');
 var activityButtonContainer = document.querySelector('.button-row');
-var minutesInput = document.getElementById("minutes");
-var secondsInput = document.getElementById("seconds");
 var startActivityButton = document.getElementById('startActivityButton');
 var startTimerButton = document.getElementById('startButton');
 var logActivityButton = document.getElementById('logActivityButton');
+
+var minutesInput = document.getElementById("minutes");
+var secondsInput = document.getElementById("seconds");
 var accomplishInput = document.querySelector('#descriptionInput');
-var categoryError = document.getElementById('categoryError');
-var descriptionError = document.getElementById('descriptionError');
+//errors
 var minutesError = document.getElementById('minutesError');
 var secondsError = document.getElementById('secondsError');
-var leftSection = document.getElementById('leftSection');
-var timerDisplay = document.getElementById('timerDisplay');
-var activityForm = document.getElementById('activityForm');
-var activity = document.getElementById('newActivity');
+var descriptionError = document.getElementById('descriptionError');
+var categoryError = document.getElementById('categoryError');
+
 var minCountdown = document.getElementById('minutesCountdown');
 var secCountdown = document.getElementById('secondsCountdown');
+var leftSection = document.getElementById('leftSection');
+var timerDisplay = document.getElementById('timerDisplay');
+var createNewActivityButton = document.getElementById('createNewButton');
+var activityForm = document.getElementById('activityForm');
+var activity = document.getElementById('newActivity');
 var descriptionTitle = document.getElementById('descriptionTitle');
 var cardsContainer = document.getElementById('cardContainer');
-var newActivitySection = document.getElementById('newActivitySection')
-var createNewActivityButton = document.getElementById('createNewButton');
+var newActivitySection = document.getElementById('newActivitySection');
 
 var loggedActivities = [];
 var currentActivity;

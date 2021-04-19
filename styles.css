@@ -1,3 +1,4 @@
+/* Home page display */
 * {
   font-family: "Montserrat", sans-serif;
   background-color: #2B2733;
@@ -7,18 +8,22 @@
 }
 
 header {
+  align-items: center;
   background-color: #46424D;
-  font-size: 26px;
-  height: 75px;
   border: none;
   display: flex;
+  font-size: 26px;
+  height: 75px;
   justify-content: center;
-  align-items: center;
 }
 
 main {
   display: grid;
   grid-template-columns: 65% 35%;
+}
+
+aside {
+  width: 95%;
 }
 
 .left-section {
@@ -45,7 +50,7 @@ main {
   border-radius: 10px;
   border-style: solid #46424D;
   box-shadow: 8px 8px #26222D;
-  height: 500px;
+  min-height: 500px;
 }
 
 .new-activity {
@@ -63,10 +68,12 @@ main {
   font-size: 22px;
 }
 
+/* Button styling */
 .button-row {
   display: flex;
-  justify-content: space-around;
-  margin: 0px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0px 45px;
   background-color: inherit;
 }
 
@@ -112,7 +119,7 @@ input[value="Exercise"]:checked+label {
   width: 28%;
   padding: 10px;
   background-color: #FFF;
-  font-size: 1.3vw;
+  font-size: 23.4px;
   font-weight: 400;
   color: #46424D;
   border-radius: 5px;
@@ -135,6 +142,22 @@ input[value="Exercise"]:checked+label {
   outline: none;
 }
 
+/* error styling */
+.error-message {
+  background-color: #46424D;
+  font-size: 16px;
+  font-weight: 400;
+  color: #EFB7EC;
+}
+
+.error-image {
+  background-color: #46424D;
+  height: 15px;
+  margin-right: 10px;
+  margin-left: 45px;
+}
+
+/* Timer Page Styling */
 .circle-outline-Study {
   border: 2px solid #B3FD78;
 }
@@ -149,11 +172,9 @@ input[value="Exercise"]:checked+label {
 
 .create-new-button {
   width: 288px;
-  margin-bottom: 480px;
-  margin-left: 225px;
 }
 
-.input-label{
+.input-label {
   background-color: #46424D;
   margin: 20px 0 30px 45px;
   color: #FFF;
@@ -175,20 +196,6 @@ input[value="Exercise"]:checked+label {
   border: none;
   border-bottom: 3px solid white;
   height: 32px;
-}
-
-.error-message {
- background-color: #46424D;
- font-size: 16px;
- font-weight: 400;
- color: #EFB7EC;
-}
-
-.error-image {
-  background-color: #46424D;
-  height: 15px;
-  margin-right: 10px;
-  margin-left: 45px;
 }
 
 .time-inputs {
@@ -245,6 +252,7 @@ input[value="Exercise"]:checked+label {
   margin-bottom: 15px;
 }
 
+/* card styling */
 .activity-card {
   display: flex;
   justify-content: space-between;
@@ -262,7 +270,7 @@ input[value="Exercise"]:checked+label {
   width: 100%;
 }
 
-.activity-details > p {
+.activity-details>p {
   background-color: #46424D;
   padding-top: 8px;
 }
@@ -272,25 +280,18 @@ input[value="Exercise"]:checked+label {
   width: 99%;
 }
 
-.activity-card-styles > h4 {
+.activity-card-styles>h4 {
   font-weight: 400;
   font-size: 19px;
   background-color: #46424D;
 }
 
-.activity-card-styles > p {
+.activity-card-styles>p {
   background-color: #46424D;
   font-size: 19px;
 }
 
-.card-container {
-  display: flex;
-  justify-content: space-between;
-  color: #FFF;
-  border-radius: 5%;
-  margin: 15px;
-}
-
+/* card inner html styling for render(); */
 .card-flexbox {
   display: flex;
   border-radius: 5px;
@@ -312,7 +313,7 @@ input[value="Exercise"]:checked+label {
   background-color: #46424D;
 }
 
-.selected-time{
+.selected-time {
   background-color: #46424D;
   font-size: 14px;
 }
@@ -323,21 +324,14 @@ input[value="Exercise"]:checked+label {
 }
 
 .card-line {
-background-color: #C278FD;
-height: 20px;
-border-radius: 2px;
-margin-top: 2%;
-margin-right: 2%;
+  background-color: #C278FD;
+  height: 20px;
+  border-radius: 2px;
+  margin-top: 2%;
+  margin-right: 2%;
 }
 
-.selected-activity {
-  margin-top: 5px;
-}
-
-aside {
-  width: 95%;
-}
-
+/* hidden style  */
 .hidden {
   display: none;
 }
