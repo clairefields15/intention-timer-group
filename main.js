@@ -214,6 +214,7 @@ function clearFormFields() {
 
 function countdown() {
   currentActivity.startTimer();
+  document.getElementById("startButton").disabled = true;
 }
 
 function showComplete(){
