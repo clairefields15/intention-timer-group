@@ -48,9 +48,13 @@ aside {
   padding: 50px;
   margin: 10px 30px 20px 30px;
   border-radius: 10px;
-  border-style: solid #46424D;
+  border: none;
   box-shadow: 8px 8px #26222D;
   min-height: 500px;
+}
+
+.new-activity-section {
+  align-items: center;
 }
 
 .new-activity {
@@ -170,10 +174,9 @@ input[value="Exercise"]:checked+label {
   border: 2px solid #FD8078;
 }
 
-.create-new-button {
+/* .create-new-button {
   width: 288px;
-}
-
+} */
 .input-label {
   background-color: #46424D;
   margin: 20px 0 30px 45px;
