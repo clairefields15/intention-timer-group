@@ -195,6 +195,7 @@ function goHome() {
   startTimerButton.innerText = 'START';
   hideElement(logActivityButton);
   clearFormFields();
+  document.getElementById("startButton").disabled = false;
 };
 
 function clearFormFields() {
