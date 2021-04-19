@@ -38,7 +38,7 @@ startActivityButton.addEventListener('click', startActivity);
 startTimerButton.addEventListener('click', countdown);
 logActivityButton.addEventListener('click', logActivity);
 createNewActivityButton.addEventListener('click', goHome);
-window.addEventListener('load', displayLocalStorage);
+window.addEventListener('load', renderCard);
 
 minutesInput.addEventListener("keypress", function (event) {
   if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
@@ -51,7 +51,6 @@ secondsInput.addEventListener("keypress", function (event) {
     event.preventDefault();
   }
 });
-
 
 ///////////// EVENT HANDLERS & FUNCTIONS ///////////////
 for(var i = 0; i < allButtons.length ; i ++) {
@@ -112,7 +111,6 @@ function checkForErrors() {
   }
   return hasError;
 };
-
 
 function preventButtons() {
   var isChecked = false;
@@ -181,76 +179,15 @@ function startActivity() {
     hideElement(activityForm);
     showElement(timerDisplay);
     activity.innerText = 'Current Activity';
-    render();
+    renderTimer();
   }
 }
 
-function render() {
+function renderTimer() {
   descriptionTitle.innerText = currentActivity.description;
   minCountdown.innerText = currentActivity.minutes;
   secCountdown.innerText = currentActivity.seconds;
 }
-
-function countdown() {
-  currentActivity.startTimer();
-}
-
-function showComplete(){
-  startTimerButton.innerText = 'COMPLETE!';
-  showElement(logActivityButton);
-}
-
-function logActivity() {
-  addToLoggedActivities();
-  renderCard();
-  hideElement(timerDisplay);
-  showElement(newActivitySection);
-  currentActivity.saveToStorage(currentActivity);
-  displayLocalStorage();
-}
-
-function addToLoggedActivities() {
-  if(!loggedActivities.includes(currentActivity)) {
-    currentActivity.markComplete();
-    loggedActivities.push(currentActivity);
-  }
-}
-
-function displayLocalStorage() {
-   var loggedActivities = JSON.parse(localStorage.getItem('loggedActivities'));
-    if (!loggedActivities) {
-      return;
-    }
-    for (var i = 0; i < loggedActivities.length; i++) {
-      loggedActivities.push(new Activity(loggedActivities[i].category, loggedActivities[i].minutes, loggedActivities[i].seconds, loggedActivities[i].description))
-    }
-    renderCard();
-  }
-  // if (localStora ge) {
-  //   for (var i = 0; i < localStorage.length; i++) {
-  //     var activityID = localStorage.key(i);
-  //     var activityObject = JSON.parse(localStorage.getItem(activityID));
-  //     activityObject = new Activity(activityObject.category, activityObject.description, activityObject.minutes, activityObject.seconds);
-  //           loggedActivities.push(activityObject);
-  //  render();
-  // }
-  
-function renderCard() {
-  cardsContainer.innerHTML = '';
-
-  for (var i = 0; i < loggedActivities.length; i ++) {
-    cardsContainer.innerHTML += `
-    <section class="card-flexbox">
-      <div class="log-activity-card">
-        <p class="selected-type">${loggedActivities[i].category}</p>
-        <p class="selected-time">${loggedActivities[i].minutes} MIN ${loggedActivities[i].seconds} SECONDS</p>
-        <p class="selected-activity">${loggedActivities[i].description}</p>
-        <p class="circle-outline-${loggedActivities[i].category} card-line"></p>
-      </div>
-    </section>
-    `;
-  }
-};
 
 function goHome() {
   hideElement(newActivitySection);
@@ -275,21 +212,62 @@ function clearFormFields() {
   hideElement(exerciseImgActive);
 }
 
-function displayLocalStorage() {
-   var loggedActivities = JSON.parse(localStorage.getItem('loggedActivities'));
-    if (!loggedActivities) {
-      return;
-    }
-    for (var i = 0; i < loggedActivities.length; i++) {
-      loggedActivities.push(new Activity(loggedActivities[i].category, loggedActivities[i].minutes, loggedActivities[i].seconds, loggedActivities[i].description))
-    }
-    renderCard();
+function countdown() {
+  currentActivity.startTimer();
+}
+
+function showComplete(){
+  startTimerButton.innerText = 'COMPLETE!';
+  showElement(logActivityButton);
+}
+
+function logActivity() {
+  addToLoggedActivities();
+  hideElement(timerDisplay);
+  showElement(newActivitySection);
+  currentActivity.saveToStorage(currentActivity);
+  renderCard();
+}
+
+function addToLoggedActivities() {
+  if(!loggedActivities.includes(currentActivity)) {
+    currentActivity.markComplete();
+    loggedActivities.push(currentActivity);
   }
-  // if (localStora ge) {
-  //   for (var i = 0; i < localStorage.length; i++) {
-  //     var activityID = localStorage.key(i);
-  //     var activityObject = JSON.parse(localStorage.getItem(activityID));
-  //     activityObject = new Activity(activityObject.category, activityObject.description, activityObject.minutes, activityObject.seconds);
-  //           loggedActivities.push(activityObject);
-  //  render();
-  // }
+}
+
+function retrieveFromStorage() {
+  var keys = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    keys.push(localStorage.key(i))
+  }
+  var loggedActivities = [];
+  for(var i = 0; i < keys.length; i++) {
+    var item = localStorage.getItem(keys[i]);
+    var parsedItem = JSON.parse(item);
+    loggedActivities.push(parsedItem);
+  }
+  return loggedActivities
+}
+
+
+function renderCard() {
+  cardsContainer.innerHTML = '';
+
+  var loggedActivities = retrieveFromStorage();
+
+  for (var i = 0; i < loggedActivities.length; i ++) {
+    cardsContainer.innerHTML += `
+    <section class="card-flexbox">
+      <div class="log-activity-card">
+        <p class="selected-type">${loggedActivities[i].category}</p>
+        <p class="selected-time">${loggedActivities[i].minutes} MIN ${loggedActivities[i].seconds} SECONDS</p>
+        <p class="selected-activity">${loggedActivities[i].description}</p>
+      </div>
+      <div class="card-line">
+        <p class="circle-outline-${loggedActivities[i].category} card-line"></p>
+      </div>
+    </section>
+    `;
+  }
+};
