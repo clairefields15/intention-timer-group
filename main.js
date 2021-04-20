@@ -19,6 +19,7 @@ var createNewActivityButton = document.getElementById('createNewButton');
 var minutesInput = document.getElementById("minutes");
 var secondsInput = document.getElementById("seconds");
 var accomplishInput = document.querySelector('#descriptionInput');
+var allInputs = document.querySelectorAll('.input-form')
 //errors
 var minutesError = document.getElementById('minutesError');
 var secondsError = document.getElementById('secondsError');
@@ -35,7 +36,6 @@ var descriptionTitle = document.getElementById('descriptionTitle');
 var cardsContainer = document.getElementById('cardContainer');
 var newActivitySection = document.getElementById('newActivitySection');
 //global variables
-var loggedActivities = [];
 var currentActivity;
 
 ////////// EVENT LISTENERS ///////////////
@@ -101,16 +101,6 @@ function exerciseButtonActive() {
   hideElement(meditateImgActive)
   showElement(meditateImg)
   startTimerButton.className = 'start-button circle-outline-Exercise'
-};
-
-function getCategory() {
-  if (studyButton.checked) {
-    return studyButton.value
-  } else if (meditateButton.checked) {
-    return meditateButton.value
-  } else if (exerciseButton.checked) {
-    return exerciseButton.value
-  }
 };
 
 function checkForErrors() {
@@ -180,11 +170,21 @@ function hideElement(element) {
   element.classList.add('hidden');
 };
 
-function checkSeconds() {
-  if (secondsInput.value < 10) {
-    return `0${secondsInput.value}`;
-  } else {
-    return secondsInput.value
+function formatTime(timeInput) {
+  if (timeInput === minutesInput) {
+    return minCountdown.innerText = minutesInput.value < 10 ? '0' + minutesInput.value : minutesInput.value;
+  } else if (timeInput === secondsInput) {
+    return secCountdown.innerText = secondsInput.value < 10 ? '0' + secondsInput.value : secondsInput.value;
+  }
+}
+
+function getCategory() {
+  if (studyButton.checked) {
+    return studyButton.value
+  } else if (meditateButton.checked) {
+    return meditateButton.value
+  } else if (exerciseButton.checked) {
+    return exerciseButton.value
   }
 };
 
@@ -192,8 +192,9 @@ function startActivity() {
   event.preventDefault();
   if (!checkForErrors()) {
     var category = getCategory();
-    var secondsInput = checkSeconds();
-    currentActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput);
+    var seconds = formatTime(secondsInput);
+    var minutes = formatTime(minutesInput);
+    currentActivity = new Activity(category, accomplishInput.value, minutes, seconds);
     hideElement(activityForm);
     showElement(timerDisplay);
     activity.innerText = 'Current Activity';
@@ -212,20 +213,28 @@ function goHome() {
   showElement(activityForm);
   startTimerButton.innerText = 'START';
   hideElement(logActivityButton);
-  clearFormFields();
+  resetHomepage();
   document.getElementById("startButton").disabled = false;
 };
 
-function clearFormFields() {
-  accomplishInput.value = '';
-  minutesInput.value = '';
-  secondsInput.value = '';
-  studyButton.checked = false;
-  meditateButton.checked = false;
-  exerciseButton.checked = false;
+function resetHomepage() {
+  clearFormInputs();
+  uncheckButtons();
   showImg();
   hideActiveImg();
 };
+
+function clearFormInputs() {
+  for (var i = 0; i < allInputs.length; i ++){
+    allInputs[i].value = '';
+  }
+}
+
+function uncheckButtons() {
+  for (var i = 0; i < allButtons.length; i++) {
+    allButtons[i].checked = false
+  }
+}
 
 function showImg() {
   showElement(meditateImg);
@@ -241,7 +250,7 @@ function hideActiveImg() {
 
 function countdown() {
   currentActivity.startTimer();
-  document.getElementById("startButton").disabled = true;
+  startTimerButton.disabled = true;
 };
 
 function showComplete() {
@@ -251,18 +260,10 @@ function showComplete() {
 
 //localStorage functions
 function logActivity() {
-  addToLoggedActivities();
   hideElement(timerDisplay);
   showElement(newActivitySection);
   currentActivity.saveToStorage(currentActivity);
   renderCard();
-};
-
-function addToLoggedActivities() {
-  if (!loggedActivities.includes(currentActivity)) {
-    currentActivity.markComplete();
-    loggedActivities.push(currentActivity);
-  }
 };
 
 function retrieveFromStorage() {
@@ -278,7 +279,6 @@ function retrieveFromStorage() {
   }
   return loggedActivities
 };
-
 
 function renderCard() {
   cardsContainer.innerHTML = '';
