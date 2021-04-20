@@ -19,6 +19,7 @@ var createNewActivityButton = document.getElementById('createNewButton');
 var minutesInput = document.getElementById("minutes");
 var secondsInput = document.getElementById("seconds");
 var accomplishInput = document.querySelector('#descriptionInput');
+var allInputs = document.querySelectorAll('.input-form')
 //errors
 var minutesError = document.getElementById('minutesError');
 var secondsError = document.getElementById('secondsError');
@@ -103,16 +104,6 @@ function exerciseButtonActive() {
   startTimerButton.className = 'start-button circle-outline-Exercise'
 };
 
-function getCategory() {
-  if (studyButton.checked) {
-    return studyButton.value
-  } else if (meditateButton.checked) {
-    return meditateButton.value
-  } else if (exerciseButton.checked) {
-    return exerciseButton.value
-  }
-};
-
 function checkForErrors() {
   var hasError = false;
   if (preventButtons()) {
@@ -188,6 +179,16 @@ function formatTime(timeInput) {
   }
 }
 
+function getCategory() {
+  if (studyButton.checked) {
+    return studyButton.value
+  } else if (meditateButton.checked) {
+    return meditateButton.value
+  } else if (exerciseButton.checked) {
+    return exerciseButton.value
+  }
+};
+
 function startActivity() {
   event.preventDefault();
   if (!checkForErrors()) {
@@ -217,16 +218,24 @@ function goHome() {
   document.getElementById("startButton").disabled = false;
 };
 
-function clearFormFields() {
-  accomplishInput.value = '';
-  minutesInput.value = '';
-  secondsInput.value = '';
-  studyButton.checked = false;
-  meditateButton.checked = false;
-  exerciseButton.checked = false;
+function resetHomepage() {
+  clearFormInputs();
+  uncheckButtons();
   showImg();
   hideActiveImg();
 };
+
+function clearFormInputs() {
+  for (var i = 0; i < allInputs.length; i ++){
+    allInputs[i].value = '';
+  }
+}
+
+function uncheckButtons() {
+  for (var i = 0; i < allButtons.length; i++) {
+    allButtons[i].checked = false
+  }
+}
 
 function showImg() {
   showElement(meditateImg);
@@ -242,7 +251,7 @@ function hideActiveImg() {
 
 function countdown() {
   currentActivity.startTimer();
-  document.getElementById("startButton").disabled = true;
+  startTimerButton.disabled = true;
 };
 
 function showComplete() {
