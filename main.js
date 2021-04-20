@@ -36,7 +36,6 @@ var descriptionTitle = document.getElementById('descriptionTitle');
 var cardsContainer = document.getElementById('cardContainer');
 var newActivitySection = document.getElementById('newActivitySection');
 //global variables
-var loggedActivities = [];
 var currentActivity;
 
 ////////// EVENT LISTENERS ///////////////
@@ -214,7 +213,7 @@ function goHome() {
   showElement(activityForm);
   startTimerButton.innerText = 'START';
   hideElement(logActivityButton);
-  clearFormFields();
+  resetHomepage();
   document.getElementById("startButton").disabled = false;
 };
 
@@ -261,18 +260,10 @@ function showComplete() {
 
 //localStorage functions
 function logActivity() {
-  addToLoggedActivities();
   hideElement(timerDisplay);
   showElement(newActivitySection);
   currentActivity.saveToStorage(currentActivity);
   renderCard();
-};
-
-function addToLoggedActivities() {
-  if (!loggedActivities.includes(currentActivity)) {
-    currentActivity.markComplete();
-    loggedActivities.push(currentActivity);
-  }
 };
 
 function retrieveFromStorage() {
@@ -288,7 +279,6 @@ function retrieveFromStorage() {
   }
   return loggedActivities
 };
-
 
 function renderCard() {
   cardsContainer.innerHTML = '';
