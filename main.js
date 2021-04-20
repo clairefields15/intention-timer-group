@@ -180,20 +180,21 @@ function hideElement(element) {
   element.classList.add('hidden');
 };
 
-function checkSeconds() {
-  if (secondsInput.value < 10) {
-    return `0${secondsInput.value}`;
-  } else {
-    return secondsInput.value
+function formatTime(timeInput) {
+  if (timeInput === minutesInput) {
+    return minCountdown.innerText = minutesInput.value < 10 ? '0' + minutesInput.value : minutesInput.value;
+  } else if (timeInput === secondsInput) {
+    return secCountdown.innerText = secondsInput.value < 10 ? '0' + secondsInput.value : secondsInput.value;
   }
-};
+}
 
 function startActivity() {
   event.preventDefault();
   if (!checkForErrors()) {
     var category = getCategory();
-    var secondsInput = checkSeconds();
-    currentActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput);
+    var seconds = formatTime(secondsInput);
+    var minutes = formatTime(minutesInput);
+    currentActivity = new Activity(category, accomplishInput.value, minutes, seconds);
     hideElement(activityForm);
     showElement(timerDisplay);
     activity.innerText = 'Current Activity';
