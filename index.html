@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.google.com/?query=mont&selection.family=Montserrat:wght@300;400&sidebar.open=true" rel="stylesheet">
-    <title> INTENTION TIMER </title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.google.com/?query=mont&selection.family=Montserrat:wght@300;400&sidebar.open=true" rel="stylesheet">
+  <title> INTENTION TIMER </title>
+</head>
 
-  <body>
-    <header>INTENTION TIMER</header>
-    <main>
-      <section class="left-section" id="leftSection">
-        <h2 class="new-activity" id="newActivity">New Activity</h2>
-        <section class="activity-form" id="activityForm">
-          <div class="selection-header">Select a category:</div>
-          <section class="button-row" id="buttonRow">
-            <input type="radio" name="group1" value="Study" class="button study-button" id="studyButton">
-            <label for="studyButton">
-            <img class="btnimg study-image" id="studyImage" src="./assets/study.svg">
-            <img class="btnimg study-active hidden" id="studyImageActive" src="./assets/study-active.svg">Study</label>
-            <input type="radio" name="group1" value="Meditate" class="button meditate-button" id="meditateButton">
-            <label for="meditateButton">
-            <img class="btnimg meditate-image" id="meditateImage" src="./assets/meditate.svg">
-            <img class="btnimg meditate-active hidden" id="meditateImageActive" src="./assets/meditate-active.svg">Meditate</label>
-            <input type="radio" name="group1" value="Exercise" class="button exercise-button" id="exerciseButton">
-            <label for="exerciseButton">
-            <img class="btnimg exercise-image" id="exerciseImage" src="./assets/exercise.svg">
-            <img class="btnimg exercise-active hidden" id="exerciseImageActive" src="./assets/exercise-active.svg">Exercise</label>
-          </section>
-          <p class="error-message hidden" id="categoryError">
-            <img class="error-image" src="./assets/warning.svg">A category is required.</p>
-          <label class="input-label">What would you like to accomplish during this time?</label>
-          <input type="text" class="input-form" id="descriptionInput"><br>
-          <p class="error-message hidden" id="descriptionError"><img class="error-image" src="./assets/warning.svg">A description is required.</p>
-          <div class="time-input">
-            <label class="input-label">Minutes</label>
-            <label class="input-label">Seconds</label>
-          </div>
-          <section class="time-inputs" id="timeInputs">
-            <input type="number" class="input-form" id="minutes">
-            <input type="number" class="input-form" id="seconds"><br>
-          </section>
-          <p class="error-message hidden" id="minutesError"><img class="error-image" src="./assets/warning.svg">Minutes are required.</p>
-          <p class="error-message hidden" id="secondsError"><img class="error-image" src="./assets/warning.svg">Seconds are required.</p>
-          <div class="start-activity">
-            <button class="action-button" id="startActivityButton">START ACTIVITY</button>
-          </div>
+<body>
+  <header>INTENTION TIMER</header>
+  <main>
+    <section class="left-section" id="leftSection">
+      <h2 class="new-activity" id="newActivity">New Activity</h2>
+      <section class="activity-form" id="activityForm">
+        <div class="selection-header">Select a category:</div>
+        <section class="button-row" id="buttonRow">
+          <input type="radio" name="group1" value="Study" class="button study-button" id="studyButton">
+          <label for="studyButton">
+            <img class="btnimg study-image" id="studyImage" src="./assets/study.svg" alt="Image of book and lightbulb, white">
+            <img class="btnimg study-active hidden" id="studyImageActive" src="./assets/study-active.svg" alt="Image of book and lightbulb, green">Study</label>
+          <input type="radio" name="group1" value="Meditate" class="button meditate-button" id="meditateButton">
+          <label for="meditateButton">
+            <img class="btnimg meditate-image" id="meditateImage" src="./assets/meditate.svg" alt="Image of lotus flower, white">
+            <img class="btnimg meditate-active hidden" id="meditateImageActive" src="./assets/meditate-active.svg" alt="Image of lotus flower, purple">Meditate</label>
+          <input type="radio" name="group1" value="Exercise" class="button exercise-button" id="exerciseButton">
+          <label for="exerciseButton">
+            <img class="btnimg exercise-image" id="exerciseImage" src="./assets/exercise.svg" alt="Image of running shoe, white">
+            <img class="btnimg exercise-active hidden" id="exerciseImageActive" src="./assets/exercise-active.svg" alt="Image of running shoe, purple">Exercise</label>
+        </section>
+        <p class="error-message hidden" id="categoryError">
+          <img class="error-image" src="./assets/warning.svg" alt="Image of warning symbol">A category is required.
+        </p>
+        <label for="descriptionInput" class="input-label">What would you like to accomplish during this time?</label>
+        <input type="text" class="input-form" id="descriptionInput"><br>
+        <p class="error-message hidden" id="descriptionError"><img class="error-image" src="./assets/warning.svg" alt="Image of warning symbol">A description is required.</p>
+        <div class="time-input">
+          <label for="minutes" class="input-label">Minutes</label>
+          <label for="seconds" class="input-label">Seconds</label>
+        </div>
+        <section class="time-inputs" id="timeInputs">
+          <input type="number" class="input-form" id="minutes">
+          <input type="number" class="input-form" id="seconds"><br>
+        </section>
+        <p class="error-message hidden" id="minutesError"><img class="error-image" src="./assets/warning.svg" alt="Image of warning symbol">Minutes are required.</p>
+        <p class="error-message hidden" id="secondsError"><img class="error-image" src="./assets/warning.svg" alt="Image of warning symbol">Seconds are required.</p>
+        <div class="start-activity">
+          <button class="action-button" id="startActivityButton">START ACTIVITY</button>
+        </div>
         </form>
       </section>
       <section class="timer-display hidden" id="timerDisplay">
         <h2 class="description-title" id="descriptionTitle">placeholder</h2>
         <div class="timer" id="timer">
-          <p class="countdown" id="minutesCountdown"></p>
+          <p class="countdown" id="minutesCountdown">00</p>
           <p class="countdown">:</p>
           <p class="countdown" id="secondsCountdown">00</p>
         </div>
-        <p class="countdown hidden" id="motivation">Great job, you have finished your activity!</p>
         <button class="start-button" id="startButton">START</button>
         <button class="action-button log-activity-button hidden" id="logActivityButton">LOG ACTIVITY</button>
       </section>
@@ -71,8 +71,9 @@
         <p class="bottom-text">Complete the form to the left to get started!</p>
       </aside>
     </section>
-    </main>
-  </body>
-  <script type="text/javascript" src="Activity.js"></script>
-  <script type="text/javascript" src="main.js"></script>
+  </main>
+</body>
+<script type="text/javascript" src="Activity.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
 </html>
