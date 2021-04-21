@@ -38,7 +38,7 @@ This is an interactive website where a user can set an intention to study, medit
 ## Contributors
 - [Claire Fields](https://github.com/clairefields15)  
 - [Lindsay Schnell](https://github.com/lschnell8)   
-- [Darla Evans](https://github.com/darlaevans2000)
+- [Darla Evans](https://github.com/darlaevans2000)  
 **Project Manager: [Will Mitchell](https://github.com/wvmitchell)**  
 **Code Reviewer: [Kristi Miller](https://github.com/Kristiannmiller)**
 
