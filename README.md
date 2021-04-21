@@ -30,3 +30,12 @@ This is an interactive website where a user can set an intention to study, medit
 
 * When the user refreshes the page, their past activities are still displayed:  
 ![Refresh page cards still saved]()
+
+### Future Additions
+- Animate the border around the timer in a way that communicates how much time is left.  
+- After the timer begins, a user can pause the timer and resume an activity when they wish.  
+- Double click to delete saved activities from local storage.
+## Contributors
+- [Claire Fields](https://github.com/clairefields15)  
+- [Lindsay Schnell](https://github.com/lschnell8)   
+- [Darla Evans](https://github.com/darlaevans2000) 
