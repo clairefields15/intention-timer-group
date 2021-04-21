@@ -95,12 +95,15 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 120px;
+  width: 150px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .btnimg {
-  height: 25px;
+  height: 28px;
   background-color: transparent;
+  margin-bottom: 4%;
 }
 
 input[value="Study"]:checked+label {
@@ -119,8 +122,20 @@ input[value="Exercise"]:checked+label {
 }
 
 .action-button {
-  margin: 20px 45px 20px 0;
-  width: 28%;
+    margin: 20px 45px 20px 0;
+    width: 32%;
+    padding: 10px;
+    background-color: #FFF;
+    font-size: 23.4px;
+    font-weight: 400;
+    color: #46424D;
+    border-radius: 5px;
+    border: none;
+    margin-top: 5%;
+}
+
+.create-new-button {
+  width: 55%;
   padding: 10px;
   background-color: #FFF;
   font-size: 23.4px;
@@ -128,6 +143,7 @@ input[value="Exercise"]:checked+label {
   color: #46424D;
   border-radius: 5px;
   border: none;
+  margin-bottom: 43%;
 }
 
 .log-activity-button {
@@ -136,8 +152,8 @@ input[value="Exercise"]:checked+label {
 
 .start-button {
   background-color: #46424D;
-  height: 220px;
-  width: 220px;
+  height: 240px;
+  width: 240px;
   border: 4px solid #FFF;
   border-radius: 50%;
   font-size: 29px;
@@ -183,6 +199,7 @@ input[value="Exercise"]:checked+label {
   color: #FFF;
   font-weight: 400;
   font-size: 22px;
+  padding-top: 7%;
 }
 
 .time-input {
@@ -294,7 +311,7 @@ input[value="Exercise"]:checked+label {
   font-size: 19px;
 }
 
-/* card inner html styling for render(); */
+/* card inner html styling for render(); */
 .card-flexbox {
   display: flex;
   border-radius: 5px;
