@@ -1,24 +1,24 @@
 // study, meditate, exercise main pg
-var studyButton = document.querySelector('.study-button');
-var studyImg = document.querySelector('#studyImage');
-var studyImgActive = document.querySelector('#studyImageActive');
-var meditateButton = document.querySelector('.meditate-button');
-var meditateImg = document.querySelector('#meditateImage')
-var meditateImgActive = document.querySelector('#meditateImageActive');
-var exerciseButton = document.querySelector('.exercise-button');
-var exerciseImg = document.querySelector('#exerciseImage');
-var exerciseImgActive = document.querySelector('#exerciseImageActive');
+var studyButton = document.getElementById('studyButton');
+var studyImg = document.getElementById('studyImage');
+var studyImgActive = document.getElementById('studyImageActive');
+var meditateButton = document.getElementById('meditateButton');
+var meditateImg = document.getElementById('meditateImage')
+var meditateImgActive = document.getElementById('meditateImageActive');
+var exerciseButton = document.getElementById('exerciseButton');
+var exerciseImg = document.getElementById('exerciseImage');
+var exerciseImgActive = document.getElementById('exerciseImageActive');
 //buttons qs
 var allButtons = document.querySelectorAll('.button');
-var activityButtonContainer = document.querySelector('.button-row');
+var activityButtonContainer = document.getElementById('buttonRow');
 var startActivityButton = document.getElementById('startActivityButton');
 var startTimerButton = document.getElementById('startButton');
 var logActivityButton = document.getElementById('logActivityButton');
 var createNewActivityButton = document.getElementById('createNewButton');
 // inputs
-var minutesInput = document.getElementById("minutes");
-var secondsInput = document.getElementById("seconds");
-var accomplishInput = document.querySelector('#descriptionInput');
+var minutesInput = document.getElementById('minutes');
+var secondsInput = document.getElementById('seconds');
+var accomplishInput = document.getElementById('descriptionInput');
 var allInputs = document.querySelectorAll('.input-form')
 //errors
 var minutesError = document.getElementById('minutesError');
@@ -39,11 +39,14 @@ var newActivitySection = document.getElementById('newActivitySection');
 var currentActivity;
 
 ////////// EVENT LISTENERS ///////////////
-window.onload = renderCard();
-startActivityButton.addEventListener('click', startActivity);
+window.addEventListener('load', renderCard);
+window.addEventListener('load', buttonListener);
 startTimerButton.addEventListener('click', countdown);
 logActivityButton.addEventListener('click', logActivity);
 createNewActivityButton.addEventListener('click', goHome);
+startActivityButton.addEventListener('click', function(event) {
+  startActivity(event);
+});
 
 minutesInput.addEventListener("keypress", function(event) {
   if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
@@ -57,11 +60,12 @@ secondsInput.addEventListener("keypress", function(event) {
   }
 });
 
-for (var i = 0; i < allButtons.length; i++) {
-  allButtons[i].addEventListener('click', selectCategory)
-}
-
 ///////////// EVENT HANDLERS & FUNCTIONS ///////////////
+function buttonListener() {
+  for (var i = 0; i < allButtons.length; i++) {
+    allButtons[i].addEventListener('click', selectCategory)
+  }
+};
 
 function selectCategory() {
   if (studyButton.checked) {
@@ -105,16 +109,7 @@ function exerciseButtonActive() {
 
 function checkForErrors() {
   var hasError = false;
-  if (preventButtons()) {
-    hasError = true;
-  }
-  if (preventAccomplish()) {
-    hasError = true;
-  }
-  if (preventMinutes()) {
-    hasError = true;
-  }
-  if (preventSeconds()) {
+  if (preventButtons() || preventAccomplish() || preventMinutes() || preventSeconds() ) {
     hasError = true;
   }
   return hasError;
@@ -188,7 +183,7 @@ function getCategory() {
   }
 };
 
-function startActivity() {
+function startActivity(event) {
   event.preventDefault();
   if (!checkForErrors()) {
     var category = getCategory();
