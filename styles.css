@@ -190,9 +190,6 @@ input[value="Exercise"]:checked+label {
   border: 2px solid #FD8078;
 }
 
-/* .create-new-button {
-  width: 288px;
-} */
 .input-label {
   background-color: #46424D;
   margin: 20px 0 30px 45px;
